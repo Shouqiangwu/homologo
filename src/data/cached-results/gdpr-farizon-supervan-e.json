@@ -1,0 +1,173 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "GDPR",
+    "domain_cn": "车联网数据合规",
+    "regulation": "EU 2016/679",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "GDPR + EDPB Guidelines 01/2020"
+  },
+  "summary": {
+    "total": 10,
+    "pass": 0,
+    "fail": 8,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [],
+    "fail": [
+      {
+        "id": "GDPR-A01",
+        "item": "数据处理合法性基础",
+        "item_en": "Lawful Basis for Data Processing",
+        "regulation": "GDPR Art.6(1)",
+        "requirement": "个人数据处理必须有合法性基础（同意/合同/合法利益等）",
+        "actual": "无任何同意机制。B2B车队模式下认为不需要驾驶员同意",
+        "gap": "严重误解：B2B模式不免除GDPR义务。驾驶员是数据主体，即使车辆归属车队公司，GPS位置和驾驶行为数据仍是驾驶员个人数据。无合法性基础=全部数据处理违法",
+        "recommendation": "(a) 明确每种数据处理的合法性基础（GPS追踪可能需合法利益评估+DPIA，而非同意）；(b) B2B场景下考虑雇主合法利益或合同必要性作为基础；(c) 编制完整的数据处理记录（ROPA）；(d) 确保车队运营商（控制者）与远程（处理者）签订Art.28处理协议",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-A02",
+        "item": "数据处理透明度",
+        "item_en": "Data Processing Transparency",
+        "regulation": "GDPR Art.13-14",
+        "requirement": "必须向数据主体提供处理信息（处理目的、法律基础、接收者、保留期限等）",
+        "actual": "隐私政策仅中文版，无EU版本，无英文/德文版本",
+        "gap": "EU驾驶员无法获取任何可理解的隐私信息。中文隐私政策对EU数据主体无效。缺少Art.13要求的所有信息要素",
+        "recommendation": "(a) 编制EU隐私政策（至少英文+主要目标市场语言）；(b) 包含GDPR Art.13要求的全部信息要素；(c) 在车辆首次启动和车队管理平台中提供隐私通知",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-D01",
+        "item": "EU→中国跨境数据传输",
+        "item_en": "EU-China Cross-Border Data Transfer",
+        "regulation": "GDPR Art.44",
+        "requirement": "向无充分性认定的第三国传输个人数据必须有合法传输机制",
+        "actual": "GPS+载重数据每5分钟上传至中国杭州数据中心。无SCCs、无BCRs、无充分性认定、无TIA",
+        "gap": "极其严重：大量高频率个人数据（GPS位置每5分钟=每天288次位置数据点）持续传输至中国，完全没有任何GDPR Art.44-49规定的传输机制。这是GDPR最严重的违规类型",
+        "recommendation": "(a) 紧急：在EU建立数据中心，实现GPS和载重数据本地化存储；(b) 短期：签署EU SCCs（2021/914版），完成中国传输影响评估（TIA）；(c) 评估哪些数据确实需要传回中国总部；(d) 大幅降低数据传输频率和范围",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-D02",
+        "item": "车队管理平台数据传输",
+        "item_en": "Fleet Management Platform Data Transfer",
+        "regulation": "GDPR Art.44 + Art.28",
+        "requirement": "车队管理平台处理EU个人数据须合规",
+        "actual": "远程车队管理平台托管在中国，处理GPS追踪、充电管理、载重监控数据",
+        "gap": "车队管理平台作为核心数据处理系统完全在中国境内。平台记录的驾驶员行踪轨迹、出勤时间、作业效率等数据均属于GDPR保护范围内的个人数据",
+        "recommendation": "(a) 开发EU版车队管理平台（部署在EU数据中心）；(b) 实现平台数据处理本地化；(c) 与EU车队客户签订Art.28数据处理协议；(d) 确保平台功能满足EU客户GDPR义务",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-C01",
+        "item": "数据主体权利通道",
+        "item_en": "Data Subject Rights Channel",
+        "regulation": "GDPR Art.15-22",
+        "requirement": "数据主体有权便捷地行使访问、删除、可携带等权利",
+        "actual": "无任何数据主体权利通道。B2B模式下完全忽略驾驶员数据权利",
+        "gap": "零权利基础设施。驾驶员无法访问、删除或导出自己的GPS追踪数据和驾驶行为数据。车队运营商也无法代驾驶员行使权利",
+        "recommendation": "(a) 在车队管理平台建立驾驶员数据权利模块；(b) 提供数据访问、删除、导出功能；(c) 建立EU本地客服渠道（非中国号码）；(d) 确保30天内响应数据主体请求",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-E01",
+        "item": "DPO和EU代表任命",
+        "item_en": "DPO and EU Representative Appointment",
+        "regulation": "GDPR Art.27 + Art.37",
+        "requirement": "非EU企业在EU大规模处理个人数据须任命EU代表和DPO",
+        "actual": "未任命DPO，未任命EU代表",
+        "gap": "远程商用车作为中国企业在EU销售联网商用车并大规模处理驾驶员位置数据，必须任命EU代表和DPO。商用车队GPS追踪属于系统性大规模监控",
+        "recommendation": "(a) 任命EU境内代表；(b) 任命具有商用车队数据保护经验的DPO；(c) 在隐私政策中公布联系方式；(d) DPO需参与车队管理平台设计",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-E02",
+        "item": "数据最小化原则",
+        "item_en": "Data Minimization Principle",
+        "regulation": "GDPR Art.5(1)(c)",
+        "requirement": "仅收集处理目的所必需的最少数据",
+        "actual": "每5分钟上传GPS+载重+驾驶行为数据，数据采集频率和范围远超必要",
+        "gap": "GPS每5分钟采集对配送路线管理可能合理，但同时采集驾驶行为数据（加速/刹车/转向）超出车队管理目的所需。未进行数据最小化评估",
+        "recommendation": "(a) 对每项数据采集进行必要性评估；(b) 降低不必要数据的采集频率；(c) 区分车辆运维数据（匿名）和驾驶员行为数据（个人数据）；(d) 实施数据聚合/匿名化措施",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "GDPR-F01",
+        "item": "数据保护影响评估（DPIA）",
+        "item_en": "Data Protection Impact Assessment",
+        "regulation": "GDPR Art.35",
+        "requirement": "大规模系统性监控须进行DPIA",
+        "actual": "未进行DPIA",
+        "gap": "车队GPS追踪=大规模系统性监控驾驶员位置，属于DPIA强制触发条件。载重数据+驾驶行为数据的组合分析可进一步推断驾驶员工作强度和效率",
+        "recommendation": "(a) 立即启动DPIA，覆盖GPS追踪、驾驶行为分析、载重监控全部处理活动；(b) 评估对驾驶员权利的影响；(c) 制定风险缓解措施；(d) 在EU销售前完成DPIA",
+        "priority": "HIGH",
+        "blocking": true
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "GDPR-B01",
+        "item": "数据保留期限",
+        "item_en": "Data Retention Period",
+        "regulation": "GDPR Art.5(1)(e)",
+        "evidence_needed": "各类数据的保留期限政策文件",
+        "current_status": "GPS、驾驶行为、载重数据的保留期限未定义。中国平台可能无限期保留",
+        "gap_note": "GDPR要求数据保留不超过处理目的所需期限。车队管理数据不需要无限期保留。需明确各数据类别的保留期限并实施自动删除",
+        "how_to_obtain": "向远程车队管理平台团队确认各类数据的实际保留期限，制定数据保留策略",
+        "priority": "HIGH"
+      },
+      {
+        "id": "GDPR-B02",
+        "item": "4G T-Box数据传输加密",
+        "item_en": "4G T-Box Data Transmission Encryption",
+        "regulation": "GDPR Art.32",
+        "evidence_needed": "T-Box数据传输加密方案（传输层加密+应用层加密规格）",
+        "current_status": "4G T-Box常时在线，每5分钟传输数据至中国，加密方案未确认",
+        "gap_note": "大量个人数据通过4G网络传输，Art.32要求适当的技术安全措施。传输加密（TLS 1.3+）和存储加密方案需验证",
+        "how_to_obtain": "向T-Box硬件和车联网平台团队索要数据传输安全技术方案，包括加密协议、密钥管理、证书管理方案",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-D01 跨境传输至中国",
+      "to_domain": "GSR",
+      "to_item": "GSR-D01 CSMS认证",
+      "issue": "车队数据传输通道的网络安全需CSMS覆盖。CSMS和GDPR跨境传输应同步推进"
+    },
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-F01 DPIA",
+      "to_domain": "GSR",
+      "to_item": "R155 TARA",
+      "issue": "DPIA可与R155的TARA（威胁分析和风险评估）合并进行，减少重复工作"
+    },
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-D02 车队管理平台",
+      "to_domain": "Battery",
+      "to_item": "BAT-F02 BMS数据开放",
+      "issue": "车队管理平台未来若集成BMS SoH数据开放接口，需确保第三方数据访问符合GDPR要求"
+    },
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-A01 合法性基础",
+      "to_domain": "ISC",
+      "to_item": "ISC-B01 在用监控数据",
+      "issue": "ADAS在用性能监控数据采集需有GDPR合法性基础。商用车队场景下可考虑合法利益（需LIA评估）"
+    }
+  ]
+}

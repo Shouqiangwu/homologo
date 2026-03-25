@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "vehicle": "Deepal SL05",
+    "vehicle_cn": "深蓝SL05",
+    "domain": "ELV",
+    "domain_cn": "报废车辆",
+    "regulation": "EU 2000/53/EC + EU 2023/0284(COD)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 4,
+    "fail": 2,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "ELV-A01",
+        "item": "可回收利用率",
+        "item_en": "Recyclability / Recoverability Rate",
+        "regulation": "EU 2005/64/EC Art.4 + ISO 22628",
+        "requirement": "M1车辆可再利用/可回收率≥85%（质量比），可再利用/可利用率≥95%",
+        "actual": "可回收率91%，可利用率97%",
+        "basis": "深蓝SL05整车质量1950kg，Sedan车型金属占比高（车身钢/铝+底盘），LFP电池包单独回收。可回收率91%>85%目标，可利用率97%>95%目标。优于星海X7 SUV（89%/96%），Sedan车型整备质量更低、金属比例更高"
+      },
+      {
+        "id": "ELV-A02",
+        "item": "六价铬禁令",
+        "item_en": "Hexavalent Chromium Ban",
+        "regulation": "ELV Annex II Entry 3",
+        "requirement": "禁止在车辆中使用六价铬（防腐涂层等）",
+        "actual": "未使用六价铬防腐涂层，采用锌铝涂层工艺",
+        "basis": "车身和底盘防腐工艺使用锌铝涂层替代六价铬钝化。紧固件供应商确认无Cr6+使用"
+      },
+      {
+        "id": "ELV-B01",
+        "item": "铅焊料豁免文档",
+        "item_en": "Lead Solder Exemption Documentation",
+        "regulation": "ELV Annex II Entry 1(a)",
+        "requirement": "电子零部件焊料含铅可豁免，但需提供正式豁免声明文档",
+        "actual": "已编制ELV Annex II豁免清单，覆盖所有含铅焊料的ECU和传感器",
+        "basis": "深蓝SL05已完成含铅焊料零部件的豁免清单编制（优于星海X7文档不完整），长安集团EU合规团队推动了文档标准化"
+      },
+      {
+        "id": "ELV-B03",
+        "item": "塑料零部件材料标识",
+        "item_en": "Plastic Component Material Marking",
+        "regulation": "ELV Dir. Art.4(1)(b) + ISO 11469",
+        "requirement": "质量>100g的塑料零部件须按ISO 11469标记材料类型",
+        "actual": "所有>100g塑料件已按ISO 11469标记材料类型",
+        "basis": "深蓝SL05在开发阶段已将ISO 11469标记纳入零部件图纸要求，供应商模具已包含标记。优于星海X7（部分件仅有GB/T 16288标记）"
+      }
+    ],
+    "fail": [
+      {
+        "id": "ELV-B02",
+        "item": "拆解手册EU格式",
+        "item_en": "Dismantling Manual EU Format",
+        "regulation": "ELV Dir. Art.8(3) + EU 2023/0284 Art.4",
+        "requirement": "OEM须提供符合EU标准的拆解手册，供报废处理企业使用",
+        "actual": "有中文和英文版拆解手册，但未按EU/IDIS格式编制",
+        "gap": "拆解手册有双语版本（优于星海X7仅中文），但内容格式不满足EU要求：缺少有害物质位置标识、推荐拆解顺序需按IDIS数据格式重编、BEV高压安全操作流程需补充",
+        "recommendation": "(a) 按IDIS数据格式标准重新编制拆解手册；(b) 补充有害物质位置图（特别是线束DEHP位置标识）；(c) 补充LFP电池包拆解安全流程",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ELV-C01",
+        "item": "新ELV提案再生材料含量目标",
+        "item_en": "New ELV Proposal Recycled Content Targets",
+        "regulation": "EU 2023/0284(COD) Art.6",
+        "requirement": "再生塑料≥25%、再生钢≥20%、再生铝≥10%",
+        "actual": "未统计再生材料使用数据",
+        "gap": "新ELV提案尚在立法过程中，但预计2026-2027年通过。深蓝SL05已有IMDS数据基础（优于星海X7），但尚未建立再生材料溯源体系",
+        "recommendation": "(a) 基于已有IMDS数据，统计当前再生材料比例；(b) 向钢铝供应商收集再生材料比例证明；(c) 评估是否需调整材料采购策略",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "ELV-C02",
+        "item": "LFP电池回收率证明",
+        "item_en": "LFP Battery Recycling Rate Certification",
+        "regulation": "EU 2023/1542 Art.71 (Battery Regulation) + ELV Dir.",
+        "evidence_needed": "LFP电池包回收工艺及预期回收率文件",
+        "current_status": "CATL长沙LFP电池的EU端回收合作伙伴和回收工艺方案未确认",
+        "gap_note": "LFP电池回收价值低于NCM（无钴无镍），但Battery Regulation回收率要求同样适用。需确认EU端回收合作伙伴和LFP专用回收工艺",
+        "how_to_obtain": "与EU电池回收企业（如Umicore、Li-Cycle EU等）建立合作协议，提供LFP电池包规格和回收工艺方案",
+        "priority": "HIGH"
+      },
+      {
+        "id": "ELV-C03",
+        "item": "生产者延伸责任（EPR）注册",
+        "item_en": "Extended Producer Responsibility (EPR) Registration",
+        "regulation": "EU 2023/0284(COD) Art.19-22",
+        "evidence_needed": "EU目标市场国家的EPR注册或EPR组织加入确认",
+        "current_status": "首次进入EU市场，尚未在任何成员国注册EPR",
+        "gap_note": "新ELV提案将强化OEM的EPR义务。各成员国EPR要求可能不同，需逐国注册",
+        "how_to_obtain": "确认首批目标市场国家（如德国/法国/荷兰），联系当地EPR组织完成注册",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-C02 LFP电池回收率",
+      "to_domain": "Battery Regulation",
+      "to_item": "电池回收义务",
+      "issue": "LFP电池回收同时受Battery Regulation和ELV两个法规约束。LFP低回收经济价值增加了回收成本挑战"
+    },
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-B01 铅焊料豁免（已通过）",
+      "to_domain": "REACH",
+      "to_item": "REACH-C03 焊料含铅SVHC",
+      "issue": "ELV豁免文档已完成，但REACH下的SVHC信息传递文档仍需补充。两个法规义务需协调管理"
+    },
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-B02 拆解手册",
+      "to_domain": "IDIS",
+      "to_item": "IDIS平台注册",
+      "issue": "拆解手册是IDIS平台数据的核心来源。英文版已有但格式需转换为IDIS标准"
+    }
+  ]
+}

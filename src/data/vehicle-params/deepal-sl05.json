@@ -1,0 +1,178 @@
+{
+  "vehicle": {
+    "name": "Deepal SL05",
+    "name_cn": "深蓝SL05",
+    "type": "BEV Sedan",
+    "category": "M1",
+    "manufacturer": "长安深蓝 Changan Deepal",
+    "target_markets": ["EU"],
+    "production_year": 2026,
+    "max_mass_kg": 1950,
+    "max_speed_kmh": 220
+  },
+  "gsr": {
+    "aeb": {
+      "c2c_installed": true,
+      "c2c_zero_contact_speed_kmh": 43,
+      "c2c_60kmh_residual_speed_kmh": 32,
+      "c2p_installed": true,
+      "c2p_speed_range_kmh": "20-60",
+      "c2b_installed": false,
+      "c2b_status": "骑行者AEB功能缺失，尚未列入开发计划"
+    },
+    "isa": {
+      "speed_limit_source": ["camera", "map"],
+      "sign_standard": "EU+CN（双标准支持）",
+      "eu_sign_support": true,
+      "map_provider": "HERE Maps",
+      "accuracy_percent": 88,
+      "feedback_types": ["visual", "audio"],
+      "haptic_feedback": false,
+      "can_be_overridden": true,
+      "default_on": true
+    },
+    "elks": {
+      "installed": true,
+      "activation_speed_kmh": 60,
+      "warning_type": "audio",
+      "correction_type": "steering_torque",
+      "turn_signal_suppression": true
+    },
+    "ddaw": {
+      "installed": true,
+      "method": "steering_pattern",
+      "activation_speed_kmh": 65,
+      "warning_types": ["visual_icon", "voice"]
+    },
+    "addw": {
+      "installed": true,
+      "dms_camera": "infrared",
+      "distraction_threshold_seconds": 3,
+      "warning_type": "visual_flash",
+      "data_upload_to_cloud": false,
+      "cloud_purpose": "无云端上传，数据仅在车端处理"
+    },
+    "edr": {
+      "installed": true,
+      "trigger": "airbag_deployment",
+      "pre_crash_window_seconds": 5,
+      "post_crash_window_seconds": 0.5,
+      "data_elements": ["speed", "brake", "throttle", "steering_angle", "seatbelt", "airbag", "acceleration_xy"],
+      "vin_recording": "full",
+      "cloud_sync": false,
+      "cloud_sync_method": "N/A"
+    },
+    "cybersecurity": {
+      "iso_21434_certified": true,
+      "csms_certificate": false,
+      "csms_status": "认证进行中，预计2026年Q3完成",
+      "ota_supported": true,
+      "ota_frequency": "monthly",
+      "rxswin_defined": false
+    },
+    "alcohol_interlock": {
+      "interface_reserved": "yes",
+      "documentation": "已预留酒精联锁装置标准接口"
+    },
+    "sensors": {
+      "front_camera": 1,
+      "front_radar": 1,
+      "corner_radar": 4,
+      "ultrasonic": 12,
+      "dms_camera": 1
+    }
+  },
+  "battery": {
+    "supplier": "宁德时代（CATL）",
+    "cell_chemistry": "LFP",
+    "capacity_kwh": 62,
+    "weight_kg": 410,
+    "factory_location": "中国湖南长沙",
+    "classification": "EV电池（>25kg）",
+    "carbon_footprint": {
+      "value_kg_co2e_per_kwh": 75,
+      "methodology": "EU PEF（产品环境足迹方法）",
+      "scope": "全生命周期（原材料至出厂含运输）",
+      "third_party_verified": true
+    },
+    "raw_materials": {
+      "cobalt_source": ["N/A（LFP无钴）"],
+      "lithium_source": ["智利", "澳大利亚"],
+      "nickel_source": ["N/A（LFP无镍）"],
+      "supply_chain_visibility": "一级供应商可见",
+      "oecd_due_diligence": false
+    },
+    "bms": {
+      "data_interface": "CAN",
+      "soh_algorithm": "proprietary",
+      "third_party_read_access": false
+    },
+    "labeling": {
+      "capacity_label": true,
+      "voltage_label": true,
+      "energy_label": true,
+      "ce_marking": true,
+      "collection_symbol": false,
+      "qr_code": false
+    },
+    "recycled_content": {
+      "cobalt_percent": "N/A",
+      "cobalt_source": "N/A（LFP无钴）",
+      "lithium_percent": 2,
+      "nickel_percent": "N/A",
+      "lead_percent": "N/A"
+    }
+  },
+  "gdpr": {
+    "connectivity": {
+      "tbox": "4G常时在线",
+      "remote_diagnostics": true,
+      "diagnostic_interval_minutes": 15,
+      "diagnostic_server": "德国法兰克福（阿里云欧洲节点）"
+    },
+    "data_collection": {
+      "vehicle_diagnostics": true,
+      "driving_behavior": true,
+      "location_data": true,
+      "voice_data": true,
+      "dms_image_data": false,
+      "data_purposes": ["product_improvement", "service_provision"]
+    },
+    "consent": {
+      "mechanism": "购车合同附件（捆绑同意）",
+      "separate_purposes": false,
+      "in_vehicle_management": false
+    },
+    "data_storage": {
+      "location": "德国法兰克福（阿里云）",
+      "eu_data_center": true,
+      "sccs_signed": true,
+      "bcrs": false,
+      "tia_completed": false
+    },
+    "data_subject_rights": {
+      "access_method": "EU客服邮箱+在线门户",
+      "processing_days": 30,
+      "in_vehicle_deletion": false,
+      "portability": false
+    },
+    "voice_assistant": {
+      "name": "深蓝AI助手",
+      "processing_server": "车端本地NLP处理（边缘计算）"
+    },
+    "navigation": {
+      "current_provider": "高德地图",
+      "planned_eu_provider": "HERE Maps"
+    },
+    "app": {
+      "name": "深蓝汽车APP",
+      "features": ["remote_unlock", "ac_preheat", "charge_management"]
+    },
+    "privacy_policy": {
+      "language": "中文+英文",
+      "eu_version": false,
+      "dpo_appointed": true,
+      "eu_representative": false
+    }
+  }
+}

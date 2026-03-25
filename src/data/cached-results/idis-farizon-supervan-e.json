@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "IDIS",
+    "domain_cn": "国际拆解信息系统",
+    "regulation": "IDIS + ELV Directive 2000/53/EC Art.8",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 7,
+    "pass": 0,
+    "fail": 4,
+    "needs_evidence": 3
+  },
+  "results": {
+    "pass": [],
+    "fail": [
+      {
+        "id": "IDIS-B01",
+        "item": "IDIS平台注册",
+        "item_en": "IDIS Platform Registration",
+        "regulation": "ELV Dir. Art.8(3) + IDIS Terms",
+        "requirement": "OEM须在IDIS平台（www.idis2.com）注册并提交车型拆解信息",
+        "actual": "远程品牌未在IDIS平台注册，甚至不了解IDIS平台",
+        "gap": "中国商用车企对IDIS平台完全陌生。远程商用车作为吉利集团子品牌，可能需独立于吉利乘用车进行IDIS注册（不同品牌/车型系列）",
+        "recommendation": "(a) 联系IDIS管理方申请OEM注册；(b) 评估是否可通过吉利集团统一注册或需远程品牌独立注册；(c) 注册费用和年费纳入EU市场准入预算；(d) N1商用车型需单独提交拆解数据",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "IDIS-B02",
+        "item": "ISO 22628可回收率计算文件",
+        "item_en": "ISO 22628 Recyclability Calculation Document",
+        "regulation": "EU 2005/64/EC + ISO 22628",
+        "requirement": "OEM须提供按ISO 22628方法学计算的可回收率/可利用率文件",
+        "actual": "未编制ISO 22628标准的可回收率计算文件，无正式计算",
+        "gap": "初步估算可回收率仅83%（不达标，见ELV分析），且缺少正式ISO 22628计算文件。IMDS材料数据完全缺失导致无法进行准确计算。680kg LFP电池包的回收率数据缺失是主要障碍",
+        "recommendation": "(a) 先完成REACH领域的IMDS材料数据报告；(b) 基于整车BOM和IMDS数据，按ISO 22628方法学进行正式计算；(c) 重点解决LFP电池包回收率计算方法；(d) 委托EU认可机构审核",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "IDIS-B03",
+        "item": "拆解信息多语言版本",
+        "item_en": "Dismantling Information Multi-language Versions",
+        "regulation": "ELV Dir. Art.8(3)",
+        "requirement": "拆解信息须以报废处理企业可理解的语言提供",
+        "actual": "无任何拆解信息文件（中文版也不存在EU标准格式版本）",
+        "gap": "问题比语言翻译更根本：连中文版的EU标准格式拆解信息都不存在。需从零编制全套拆解信息，然后翻译。商用车特有的货厢拆解、大型电池包拆卸等内容需特别编制",
+        "recommendation": "(a) 从零编制EU标准格式拆解信息；(b) 优先编制英文版；(c) 按目标市场需要增加当地语言版本；(d) 特别关注680kg大型LFP电池包拆解安全信息",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "IDIS-B04",
+        "item": "N1商用车拆解特殊信息",
+        "item_en": "N1 Commercial Vehicle Dismantling Special Information",
+        "regulation": "ELV Dir. Art.8 + EU 2023/0284",
+        "requirement": "商用车型须提供特有的拆解信息（货厢结构、加强底盘等）",
+        "actual": "未编制商用车特有的拆解信息",
+        "gap": "N1配送van与M1乘用车结构差异显著：加强型底盘、货厢结构、大容量电池布局、商用级线束等。拆解信息需覆盖这些商用车特有结构",
+        "recommendation": "(a) 编制商用车特有拆解章节（货厢/底盘/商用电气系统）；(b) 标注商用车特有有害物质位置；(c) 提供商用车专用拆解工具清单",
+        "priority": "HIGH",
+        "blocking": true
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "IDIS-C01",
+        "item": "LFP电池包拆解特殊信息",
+        "item_en": "LFP Battery Pack Dismantling Special Information",
+        "regulation": "ELV Dir. Art.8 + EU 2023/1542 Art.74",
+        "evidence_needed": "100kWh/680kg LFP电池包拆解安全操作指导（高压断电流程、起重设备要求、安全防护要求）",
+        "current_status": "电池包拆解信息仅有内部维修手册（中文），未按EU标准编制",
+        "gap_note": "680kg电池包拆卸需专用起重设备和安全防护。100kWh LFP电池包的高压系统（预计350-400V）拆解是高危操作。EU报废处理企业需详细的安全操作指导",
+        "how_to_obtain": "编制LFP电池包拆解安全操作指导，包含：(a) 高压断电操作步骤图解；(b) 680kg电池包起重和搬运要求；(c) LFP热失控应急处理（虽LFP热稳定性好但仍需预案）；(d) 个人防护设备清单",
+        "priority": "HIGH"
+      },
+      {
+        "id": "IDIS-C02",
+        "item": "有害物质位置清单",
+        "item_en": "Hazardous Substance Location List",
+        "regulation": "ELV Dir. Art.8(3) + Annex II",
+        "evidence_needed": "整车有害物质位置标识图",
+        "current_status": "未编制任何有害物质位置清单",
+        "gap_note": "IMDS材料数据完全缺失（见REACH分析），导致有害物质位置清单无数据基础。需先完成REACH SVHC筛查才能编制此清单。LFP电池电解液（LiPF6）位置需特别标注",
+        "how_to_obtain": "待REACH SVHC筛查和IMDS数据完成后，编制有害物质位置清单和整车布置图标注",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "IDIS-C03",
+        "item": "零部件可再利用评估",
+        "item_en": "Component Reusability Assessment",
+        "regulation": "EU 2023/0284(COD) Art.7 (新ELV提案)",
+        "evidence_needed": "高价值零部件可再利用性评估（电驱系统、LFP电池模组、商用车特有零部件等）",
+        "current_status": "未进行零部件级可再利用性评估",
+        "gap_note": "商用车零部件再利用价值可能高于乘用车：LFP电池模组可用于储能二次利用、电驱总成标准化程度可能更高。100kWh LFP电池包的梯次利用评估尤为重要",
+        "how_to_obtain": "对高价值零部件进行可再利用性评估。LFP电池模组的梯次利用（V2G储能等）可能是商业亮点",
+        "priority": "LOW"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "IDIS",
+      "from_item": "IDIS-B02 可回收率计算",
+      "to_domain": "ELV",
+      "to_item": "ELV-A01 可回收率不达标",
+      "issue": "ISO 22628计算将正式确认83%可回收率不达标的结论。IDIS计算结果需与ELV分析协调，共同推动改进方案"
+    },
+    {
+      "from_domain": "IDIS",
+      "from_item": "IDIS-C01 LFP电池拆解信息",
+      "to_domain": "ELV",
+      "to_item": "ELV-B02 拆解手册缺失",
+      "issue": "680kg LFP电池拆解信息是拆解手册的核心章节。IDIS平台电池拆解数据需与ELV拆解手册内容一致"
+    },
+    {
+      "from_domain": "IDIS",
+      "from_item": "IDIS-C02 有害物质位置",
+      "to_domain": "REACH",
+      "to_item": "REACH-B01 IMDS缺失",
+      "issue": "有害物质位置清单依赖REACH SVHC筛查结果和IMDS材料数据。IMDS完全缺失是有害物质清单无法编制的根本原因"
+    }
+  ]
+}

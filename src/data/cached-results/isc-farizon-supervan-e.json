@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "ISC",
+    "domain_cn": "在用车符合性",
+    "regulation": "EU 2018/858 Art.52-54 + EU 2019/2144",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 2,
+    "fail": 4,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "ISC-A01",
+        "item": "排放ISC豁免（BEV）",
+        "item_en": "Emission ISC Exemption (BEV)",
+        "regulation": "EU 2018/1832",
+        "requirement": "在用车排放一致性监控（尾气排放）",
+        "actual": "BEV车辆，无尾气排放，排放ISC不适用",
+        "basis": "远程SuperVAN E为纯BEV N1车辆，无内燃机排放系统。排放ISC的尾气排放一致性测试不适用于BEV"
+      },
+      {
+        "id": "ISC-A02",
+        "item": "蒸发排放ISC豁免（BEV）",
+        "item_en": "Evaporative Emission ISC Exemption (BEV)",
+        "regulation": "EU 2018/1832 Annex",
+        "requirement": "蒸发排放一致性监控",
+        "actual": "BEV车辆，无燃油系统，蒸发排放ISC不适用",
+        "basis": "纯BEV无燃油箱和燃油蒸发排放系统，蒸发排放ISC监控不适用"
+      }
+    ],
+    "fail": [
+      {
+        "id": "ISC-B01",
+        "item": "ADAS在用性能监控计划",
+        "item_en": "ADAS In-Service Performance Monitoring Plan",
+        "regulation": "EU 2019/2144 Art.6 + EU 2018/858 Art.52",
+        "requirement": "安全系统（AEB/ISA/ELKS等）的在用性能退化监控机制",
+        "actual": "无EU市场ADAS在用性能监控计划，无任何监控基础设施",
+        "gap": "远程SuperVAN E完全没有EU市场ISC监控计划。更严重的是，车辆不支持OTA，无法通过远程手段进行性能数据采集。商用车队长距离高频使用导致ADAS传感器退化可能更快",
+        "recommendation": "(a) 建立EU市场ADAS性能监控计划；(b) 由于无OTA能力，需通过定期回厂检测或经销商诊断采集数据；(c) 建立传感器标定周期（建议每年或每2万公里）；(d) 将监控计划纳入WVTA型式认证文档",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ISC-B02",
+        "item": "市场监督响应流程",
+        "item_en": "Market Surveillance Response Process",
+        "regulation": "EU 2018/858 Art.53-54",
+        "requirement": "OEM须配合EU市场监督机构的ISC调查和车辆抽检",
+        "actual": "EU市场运营团队未建立，无市场监督响应能力",
+        "gap": "远程商用车作为首次进入EU市场的中国商用车企，完全没有EU运营团队。无法在规定时限内响应市场监督机构的调查请求、提供技术资料或安排车辆检测",
+        "recommendation": "(a) 建立EU运营团队或指定EU授权代表；(b) 建立市场监督快速响应流程（含N1商用车特定要求）；(c) 准备标准化技术资料包（英文）；(d) 建立召回管理流程",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ISC-B03",
+        "item": "无OTA导致软件更新困难",
+        "item_en": "No OTA Capability Impacting Software Updates",
+        "regulation": "R156 + EU 2018/858",
+        "requirement": "OEM须有能力纠正在用车合规偏差",
+        "actual": "不支持OTA更新，所有软件更新需回厂执行",
+        "gap": "商用车队分散在EU各地运营，无OTA意味着软件召回或性能修复需车辆逐台回厂。对于商用车队客户，停运成本极高。如发现ISC问题需大规模修复时效率极低",
+        "recommendation": "(a) 短期：建立覆盖EU主要市场的售后服务网点（至少在主要物流中心城市）；(b) 中期：开发OTA能力；(c) 与EU经销商/服务商建立软件更新代理协议；(d) 制定软件更新应急预案",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ISC-B04",
+        "item": "商用车特定在用监控要求",
+        "item_en": "Commercial Vehicle Specific ISC Requirements",
+        "regulation": "EU 2018/858 Art.52 + N1 specific",
+        "requirement": "N1商用车在用阶段需监控载重相关性能参数",
+        "actual": "未考虑N1商用车载重工况对ADAS性能的影响",
+        "gap": "N1配送van满载（约1吨货物）与空载时制动距离差异显著，直接影响AEB性能。ISC监控计划需覆盖不同载重工况下的ADAS性能退化",
+        "recommendation": "(a) 在ISC监控计划中增加载重工况因素；(b) 定义空载/半载/满载三种工况下的AEB性能基准；(c) 建立载重对制动性能影响的退化模型",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "ISC-C01",
+        "item": "电池性能在用监控",
+        "item_en": "Battery Performance In-Service Monitoring",
+        "regulation": "EU 2023/1542 Art.14 + EU 2018/858",
+        "evidence_needed": "100kWh LFP电池SOH在用监控方案和退化报告机制",
+        "current_status": "BMS具备SOH监控能力（专有算法），但EU市场数据报告机制未建立",
+        "gap_note": "100kWh大容量LFP电池的SOH退化对商用车运营续航影响大。车队客户需要透明的SOH数据用于运营规划。Battery Regulation要求数据可访问",
+        "how_to_obtain": "建立电池SOH数据记录和报告系统。需开放BMS数据接口（与BAT-F02关联），建立EU合规的电池性能报告机制",
+        "priority": "HIGH"
+      },
+      {
+        "id": "ISC-C02",
+        "item": "售后服务网络ISC支撑能力",
+        "item_en": "After-Sales Service Network ISC Support Capability",
+        "regulation": "EU 2018/858 Art.52",
+        "evidence_needed": "EU售后服务网络规划和ISC支撑能力评估",
+        "current_status": "EU售后服务网络尚在规划中，无确定的服务网点",
+        "gap_note": "无售后服务网络意味着无法执行ISC相关的车辆检测、传感器标定和软件更新。商用车客户对售后响应速度要求高（停运=损失）",
+        "how_to_obtain": "提供EU售后服务网络建设计划，包括：服务网点布局、技术人员培训、诊断设备配置、备件供应方案",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "ISC",
+      "from_item": "ISC-B01 ADAS在用监控",
+      "to_domain": "GSR",
+      "to_item": "AEB/ISA/ELKS型式认证",
+      "issue": "ADAS在用性能监控的基准值来自GSR型式认证测试结果。ISC监控计划需引用GSR认证中的性能指标作为退化判断标准"
+    },
+    {
+      "from_domain": "ISC",
+      "from_item": "ISC-B03 无OTA能力",
+      "to_domain": "GSR",
+      "to_item": "GSR-D03 无OTA能力",
+      "issue": "GSR中RXSWIN未定义+无OTA能力的组合使得软件更新管理极为困难。ISC软件修复依赖线下回厂，与GSR中的R156 SUMS要求需协调"
+    },
+    {
+      "from_domain": "ISC",
+      "from_item": "ISC-B01 ADAS数据采集",
+      "to_domain": "GDPR",
+      "to_item": "车队数据隐私",
+      "issue": "ADAS在用监控数据采集涉及商用车位置、载重、驾驶行为等数据，需GDPR合规评估（含B2B场景下驾驶员数据保护）"
+    }
+  ]
+}

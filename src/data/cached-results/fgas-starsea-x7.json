@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "vehicle": "StarSea X7",
+    "vehicle_cn": "星海X7",
+    "domain": "F-GAS",
+    "domain_cn": "含氟温室气体",
+    "regulation": "EU 2024/573 + MAC Directive 2006/40/EC",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 5,
+    "pass": 2,
+    "fail": 0,
+    "needs_evidence": 3
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "FGAS-A01",
+        "item": "制冷剂GWP合规",
+        "item_en": "Refrigerant GWP Compliance",
+        "regulation": "2006/40/EC Art.5 + EU 2024/573",
+        "requirement": "M1/N1类车辆空调制冷剂GWP必须≤150",
+        "actual": "使用R-1234yf（HFO-1234yf），GWP = 4",
+        "basis": "星海X7热泵空调系统使用R-1234yf制冷剂，GWP=4，远低于150限值。完全满足MAC指令和新F-GAS法规要求"
+      },
+      {
+        "id": "FGAS-A02",
+        "item": "制冷剂泄漏率限制",
+        "item_en": "Refrigerant Leakage Rate Limit",
+        "regulation": "2006/40/EC Art.4 + EU 2024/573 Art.4",
+        "requirement": "空调系统年泄漏率须在允许范围内",
+        "actual": "系统设计泄漏率符合EU标准",
+        "basis": "星海X7空调系统采用密封设计，制冷剂充注量和接头密封性满足泄漏率要求。R-1234yf系统的低GWP也降低了泄漏环境影响"
+      }
+    ],
+    "fail": [],
+    "needs_evidence": [
+      {
+        "id": "FGAS-B01",
+        "item": "MAC型式认证文档",
+        "item_en": "MAC Type Approval Documentation",
+        "regulation": "2006/40/EC Art.5(4)",
+        "evidence_needed": "MAC系统型式认证技术文件（制冷剂规格、充注量、GWP证明）",
+        "current_status": "空调系统使用R-1234yf，但EU型式认证文档尚未编制",
+        "gap_note": "虽然制冷剂选择合规，但MAC型式认证需正式提交技术文件证明。文件需包括：制冷剂化学名称、GWP值来源、系统充注量、泄漏检测方法",
+        "how_to_obtain": "编制MAC型式认证技术文件包，提交至EU型式认证机构。包含R-1234yf供应商合规声明和GWP值证书",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "FGAS-B02",
+        "item": "制冷剂回收操作规程",
+        "item_en": "Refrigerant Recovery Procedure Documentation",
+        "regulation": "EU 2024/573 Art.8 + 2006/40/EC Art.6",
+        "evidence_needed": "车辆维修和报废阶段的制冷剂回收操作规程",
+        "current_status": "EU市场售后服务体系尚在建设中，制冷剂回收规程未编制",
+        "gap_note": "F-GAS法规要求制冷剂在维修和报废阶段必须由持证技术人员按规定流程回收，不得直接排放。OEM需提供回收操作指导",
+        "how_to_obtain": "编制R-1234yf制冷剂回收操作规程（含安全注意事项，R-1234yf微可燃），纳入EU售后服务手册",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "FGAS-B03",
+        "item": "制冷剂标签标识",
+        "item_en": "Refrigerant Label Identification",
+        "regulation": "2006/40/EC Art.6(1) + SAE J2842",
+        "evidence_needed": "空调系统制冷剂标签照片或图纸（需含制冷剂名称、GWP值）",
+        "current_status": "中国版标签可能仅标注中文，未确认是否符合EU/SAE标准格式",
+        "gap_note": "EU要求空调系统充注口附近须有标签标明制冷剂类型和GWP值，便于维修人员识别。标签需符合EU语言和格式要求",
+        "how_to_obtain": "确认车辆空调充注口标签内容，按EU标准补充或更换标签（含制冷剂名称R-1234yf、GWP=4标注）",
+        "priority": "LOW"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "F-GAS",
+      "from_item": "FGAS-B02 制冷剂回收",
+      "to_domain": "ELV",
+      "to_item": "报废阶段制冷剂处理",
+      "issue": "制冷剂在报废阶段的回收处理同时受F-GAS法规和ELV指令约束。拆解手册中需包含制冷剂回收步骤"
+    }
+  ]
+}

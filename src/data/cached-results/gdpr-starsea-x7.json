@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "vehicle": "StarSea X7",
+    "vehicle_cn": "星海X7",
+    "domain": "GDPR",
+    "domain_cn": "车联网数据合规",
+    "regulation": "EU 2016/679",
+    "generated_at": "2026-03-24",
+    "model": "claude-sonnet-4-20250514",
+    "analysis_version": "GDPR + EDPB Guidelines 01/2020"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 0,
+    "fail": 5,
+    "needs_evidence": 3
+  },
+  "results": {
+    "pass": [],
+    "fail": [
+      {
+        "id": "GDPR-A02",
+        "item": "同意与购车合同分别获取",
+        "item_en": "Consent Separate from Purchase Contract",
+        "regulation": "EDPB Guidelines 01/2020 §56-58",
+        "requirement": "数据处理同意必须与购车合同分别获取，不得捆绑",
+        "actual": "用户在购车合同附件中同意数据处理政策（捆绑同意）",
+        "gap": "构成'捆绑同意'（bundled consent），不满足GDPR'自由同意'要求。拒绝=无法购车",
+        "recommendation": "(a) 将数据同意从购车合同拆分为独立文件；(b) 按处理目的分别获取同意（远程诊断/位置/语音/DMS各自独立）；(c) 确保拒绝同意不影响基本驾驶功能；(d) 在车载屏幕实现同意管理界面",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-A03",
+        "item": "分目的独立同意",
+        "item_en": "Purpose-Specific Granular Consent",
+        "regulation": "GDPR Art.6-7 + EDPB Guidelines",
+        "requirement": "每个处理目的必须单独获取同意",
+        "actual": "单一概括性同意覆盖所有数据处理（诊断、行为、位置、语音、DMS）",
+        "gap": "未按处理目的分别获取同意，违反目的限定原则",
+        "recommendation": "(a) 拆分为5-6个独立同意项；(b) 设计首次启动引导流程；(c) 提供随时撤回同意的车载界面",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-D01",
+        "item": "EU→中国跨境数据传输",
+        "item_en": "EU-China Cross-Border Data Transfer",
+        "regulation": "GDPR Art.44",
+        "requirement": "向无充分性认定的第三国传输个人数据必须有合法传输机制",
+        "actual": "所有数据存储在中国深圳，未签署SCCs、无BCRs、无充分性认定",
+        "gap": "无任何GDPR Art.44-49规定的传输机制。这是GDPR最严重的违规类型之一",
+        "recommendation": "(a) 短期：签署EU SCCs（2021/914版），完成TIA；(b) 中期：在EU建立数据中心（AWS Frankfurt / Azure Netherlands）实现数据本地化；(c) 长期：考虑BCRs；(d) 评估哪些数据必须传回中国",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-C01",
+        "item": "车端数据主体权利",
+        "item_en": "In-Vehicle Data Subject Rights",
+        "regulation": "GDPR Art.15-22",
+        "requirement": "数据主体有权便捷地行使访问、删除、可携带等权利",
+        "actual": "仅可通过中国客服热线申请，30个工作日处理，无车端删除功能",
+        "gap": "访问渠道不便（中国号码）、处理周期过长（GDPR要求1个月但需合理便捷）、无车端自助操作",
+        "recommendation": "(a) 开发车载隐私管理界面（查看/删除/导出数据）；(b) 提供EU本地客服渠道（德语/英语）；(c) 建立EU数据中心后实现本地化数据管理",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "GDPR-E02",
+        "item": "EU代表和DPO任命",
+        "item_en": "EU Representative and DPO Appointment",
+        "regulation": "GDPR Art.27 + Art.37",
+        "requirement": "非EU企业在EU大规模处理个人数据须任命EU代表和DPO",
+        "actual": "未任命EU代表，未任命DPO",
+        "gap": "作为中国企业在EU销售联网车辆，大规模处理EU数据主体数据，必须任命EU代表和DPO",
+        "recommendation": "(a) 任命EU境内代表（可委托专业服务商）；(b) 任命DPO（建议有汽车行业GDPR经验）；(c) 在车辆隐私政策中公布代表和DPO联系方式",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "GDPR-B02",
+        "item": "DMS数据是否构成生物识别数据",
+        "item_en": "DMS Data as Biometric Data Classification",
+        "regulation": "GDPR Art.9(1)",
+        "evidence_needed": "DMS系统功能规格书：是否有驾驶员身份识别功能、是否生成生物识别模板",
+        "current_status": "数据处理政策仅提及'DMS图像数据'，未说明是否用于身份识别",
+        "gap_note": "如DMS用于身份识别→构成Art.9生物识别数据→需明确同意。如仅用于疲劳/分心检测→仍是个人数据但非特殊类别",
+        "how_to_obtain": "向ADAS/DMS产品团队索要DMS功能规格书，确认身份识别功能和数据流",
+        "priority": "HIGH"
+      },
+      {
+        "id": "GDPR-E01",
+        "item": "DPIA数据保护影响评估",
+        "item_en": "Data Protection Impact Assessment",
+        "regulation": "GDPR Art.35",
+        "evidence_needed": "已完成的DPIA报告",
+        "current_status": "未提及是否进行过DPIA",
+        "gap_note": "大规模GPS追踪+DMS摄像头部署=DPIA强制触发条件。系统性监控+特殊类别数据",
+        "how_to_obtain": "委托隐私律师或DPO进行DPIA，覆盖所有车联网数据处理活动",
+        "priority": "HIGH"
+      },
+      {
+        "id": "GDPR-D03",
+        "item": "语音数据传输评估",
+        "item_en": "Voice Data Transfer Assessment",
+        "regulation": "GDPR Art.44 + Art.9",
+        "evidence_needed": "语音助手数据处理方案：NLP处理位置、数据保留期限、是否用于模型训练",
+        "current_status": "语音数据传回中国NLP服务器处理",
+        "gap_note": "语音数据可能包含生物识别特征（声纹），传输至中国面临与GDPR-D01相同的跨境传输问题",
+        "how_to_obtain": "向语音助手团队索要数据处理技术方案，评估是否可在EU本地部署NLP服务",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-B02 DMS生物识别数据",
+      "to_domain": "GSR",
+      "to_item": "GSR-A27 ADDW数据记录限制",
+      "issue": "同一问题的两个法规视角：GSR禁止DMS数据持续记录，GDPR对生物识别数据有额外保护要求"
+    },
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-D01 跨境传输",
+      "to_domain": "GSR",
+      "to_item": "GSR-D01 CSMS认证",
+      "issue": "CSMS中的数据保护要求需与GDPR协调，两者应同步推进"
+    },
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-E01 DPIA",
+      "to_domain": "GSR",
+      "to_item": "R155 TARA",
+      "issue": "DPIA可与R155的TARA（威胁分析和风险评估）合并进行，减少重复工作"
+    }
+  ]
+}

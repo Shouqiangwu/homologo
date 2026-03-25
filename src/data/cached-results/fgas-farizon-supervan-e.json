@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "F-GAS",
+    "domain_cn": "含氟温室气体",
+    "regulation": "EU 2024/573 + MAC Directive 2006/40/EC",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 5,
+    "pass": 0,
+    "fail": 3,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [],
+    "fail": [
+      {
+        "id": "FGAS-A01",
+        "item": "制冷剂GWP严重超标",
+        "item_en": "Refrigerant GWP Major Exceedance",
+        "regulation": "2006/40/EC Art.5 + EU 2024/573",
+        "requirement": "M1/N1类车辆空调制冷剂GWP必须≤150",
+        "actual": "使用R-134a（HFC-134a），GWP = 1430",
+        "gap": "GWP严重超标：R-134a GWP=1430，超出限值150的9.5倍。这是最严重的F-GAS违规，R-134a在EU新车中已禁用多年（M1自2017年起禁止）。中国市场仍广泛使用R-134a，远程SuperVAN E直接搬运了中国版空调系统",
+        "recommendation": "(a) 必须更换制冷剂为R-1234yf（GWP=4）或CO2/R-744（GWP=1）；(b) R-1234yf方案：更换压缩机、蒸发器、冷凝器密封件和管路（R-1234yf微可燃，需A2L安全设计）；(c) CO2方案：需全新高压系统设计（120bar工作压力）；(d) 建议优先选R-1234yf方案，技术成熟度更高",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "FGAS-A02",
+        "item": "制冷剂标签标识不合规",
+        "item_en": "Refrigerant Label Non-Compliant",
+        "regulation": "2006/40/EC Art.6(1) + SAE J2842",
+        "requirement": "空调系统充注口附近须有标签标明制冷剂类型和GWP值",
+        "actual": "标签为中文R-134a标识，无GWP值标注，不符合EU/SAE格式",
+        "gap": "标签不合规（即使更换制冷剂后仍需重新设计标签）。当前R-134a标签格式不符合EU要求",
+        "recommendation": "(a) 更换制冷剂后，设计新的EU合规标签；(b) 标签需符合SAE J2842标准格式；(c) 包含制冷剂化学名称、代号、GWP值；(d) 标签语言须包含英文",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "FGAS-A03",
+        "item": "空调系统EU型式认证",
+        "item_en": "MAC System EU Type Approval",
+        "regulation": "2006/40/EC Art.5(4)",
+        "requirement": "MAC系统须通过EU型式认证",
+        "actual": "当前R-134a空调系统不可能通过EU型式认证，需完全更换后重新认证",
+        "gap": "由于R-134a违规，整个空调系统需要重新设计和认证。这不是文档问题，而是硬件更换问题，影响车辆设计变更和生产线调整",
+        "recommendation": "(a) 优先完成制冷剂系统更换工程设计；(b) 新系统完成后编制MAC型式认证技术文件；(c) 认证内容包括：新制冷剂规格、系统充注量、GWP证明、泄漏测试结果；(d) 将MAC认证纳入整车WVTA计划",
+        "priority": "HIGH",
+        "blocking": true
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "FGAS-B01",
+        "item": "制冷剂回收操作规程",
+        "item_en": "Refrigerant Recovery Procedure Documentation",
+        "regulation": "EU 2024/573 Art.8 + 2006/40/EC Art.6",
+        "evidence_needed": "车辆维修和报废阶段的制冷剂回收操作规程",
+        "current_status": "EU市场售后服务体系尚在建设中，制冷剂回收规程未编制",
+        "gap_note": "需在更换新制冷剂后编制。如采用R-1234yf，需包含微可燃性安全注意事项；如采用CO2/R-744，需包含高压操作安全要求",
+        "how_to_obtain": "待制冷剂方案确定后，编制对应的制冷剂回收操作规程，纳入EU售后服务手册",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "FGAS-B02",
+        "item": "热泵系统制冷剂评估",
+        "item_en": "Heat Pump System Refrigerant Assessment",
+        "regulation": "EU 2024/573",
+        "evidence_needed": "BEV热泵系统（如配备）的制冷剂类型和GWP值确认",
+        "current_status": "未确认远程SuperVAN E是否配备热泵系统（BEV常见配置）",
+        "gap_note": "如车辆同时配备热泵系统用于冬季座舱加热，热泵制冷剂也需满足GWP≤150要求。需确认热泵与空调是否共享制冷剂回路",
+        "how_to_obtain": "确认车辆热管理系统架构，如有独立热泵回路需单独评估制冷剂合规性",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "F-GAS",
+      "from_item": "FGAS-A01 R-134a制冷剂",
+      "to_domain": "ELV",
+      "to_item": "报废阶段制冷剂处理",
+      "issue": "R-134a在报废阶段的回收处理有特殊要求（高GWP不可排放）。更换为低GWP制冷剂后可简化ELV回收流程"
+    },
+    {
+      "from_domain": "F-GAS",
+      "from_item": "FGAS-A01 空调系统更换",
+      "to_domain": "GSR",
+      "to_item": "整车WVTA认证",
+      "issue": "空调系统更换属于重大设计变更，需纳入整车WVTA型式认证计划。更换时间线影响WVTA提交节点"
+    }
+  ]
+}

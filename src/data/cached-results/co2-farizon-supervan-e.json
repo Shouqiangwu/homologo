@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "CO2",
+    "domain_cn": "CO2排放",
+    "regulation": "EU 2019/631 (amended by EU 2023/851)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 6,
+    "pass": 2,
+    "fail": 0,
+    "needs_evidence": 4
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "CO2-A01",
+        "item": "尾气CO2排放",
+        "item_en": "Tailpipe CO2 Emissions",
+        "regulation": "EU 2019/631 Art.3(1)(h)",
+        "requirement": "车辆CO2排放值需纳入制造商车队平均计算",
+        "actual": "BEV车辆，尾气CO2排放 = 0 g/km",
+        "basis": "远程SuperVAN E为纯BEV，无内燃机，无尾气排放。WLTP测试CO2排放计为0g/km"
+      },
+      {
+        "id": "CO2-A02",
+        "item": "ZLEV积分资格（N1车队）",
+        "item_en": "ZLEV Credit Eligibility (N1 Fleet)",
+        "regulation": "EU 2019/631 Art.4a + EU 2023/851",
+        "requirement": "零排放和低排放车辆（<50g/km）可获得ZLEV超级积分",
+        "actual": "BEV，0g/km，完全符合N1类ZLEV定义",
+        "basis": "远程SuperVAN E作为N1纯BEV（0g/km），满足ZLEV定义。N1类2025-2029年ZLEV激励乘数适用，可降低制造商N1车队平均CO2"
+      }
+    ],
+    "fail": [],
+    "needs_evidence": [
+      {
+        "id": "CO2-B01",
+        "item": "车队池化协议（Pooling）状态",
+        "item_en": "Fleet Pooling Agreement Status",
+        "regulation": "EU 2019/631 Art.6",
+        "evidence_needed": "已签署的N1车队池化协议或独立制造商注册确认",
+        "current_status": "远程商用车首次进入EU市场，尚不明确是否已与其他N1制造商建立pooling安排",
+        "gap_note": "作为中国商用车新品牌，EU N1注册量极少。车队平均CO2虽为0g/km无超标风险，但N1市场pooling可将ZLEV积分卖给传统柴油van制造商（如Ford Transit、Mercedes Sprinter的制造商）获取商业价值",
+        "how_to_obtain": "评估N1市场pooling商业机会，联系潜在pooling合作伙伴。提供协议副本或独立注册决策文件",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "CO2-B02",
+        "item": "年度CO2监控注册",
+        "item_en": "Annual CO2 Monitoring Registration with EU Authority",
+        "regulation": "EU 2021/392 Art.4-7",
+        "evidence_needed": "向EEA/欧委会提交的年度CO2监控注册文件",
+        "current_status": "首次进入EU市场，尚未完成N1类年度监控注册流程",
+        "gap_note": "即使CO2=0g/km，N1制造商仍需按EU 2021/392进行年度监控和报告。N1和M1监控流程略有差异，需注意N1特定要求",
+        "how_to_obtain": "联系EU型式认证技术服务机构，启动N1类年度CO2监控注册流程",
+        "priority": "HIGH"
+      },
+      {
+        "id": "CO2-B03",
+        "item": "WLTP型式认证测试报告",
+        "item_en": "WLTP Type Approval Test Report",
+        "regulation": "EU 2017/1151 (WLTP)",
+        "evidence_needed": "EU认可实验室出具的WLTP测试报告（含纯电续航里程、能耗值）",
+        "current_status": "中国测试依据CLTC标准，EU需按WLTP标准重新测试",
+        "gap_note": "CLTC续航里程 ≠ WLTP续航里程。100kWh LFP电池包需在EU认可实验室按WLTP标准测试。N1车辆可能需在不同载荷工况下测试（空载/满载），与M1测试流程不同",
+        "how_to_obtain": "选择EU认可技术服务机构（如TUV、DEKRA），安排N1类WLTP测试。提供电池包规格、能耗数据，明确参考质量和载荷定义",
+        "priority": "HIGH"
+      },
+      {
+        "id": "CO2-B04",
+        "item": "电池碳足迹声明",
+        "item_en": "Battery Carbon Footprint Declaration",
+        "regulation": "EU 2023/1542 Art.7 (Battery Regulation)",
+        "evidence_needed": "电池碳足迹声明文件（生命周期碳排放计算）",
+        "current_status": "浙江工厂生产100kWh LFP电池，仅按GB/T 24067计算碳足迹（105 kg CO₂e/kWh），未按EU标准编制",
+        "gap_note": "105 kg CO₂e/kWh的碳足迹远高于EU同类LFP电池（通常60-80 kg CO₂e/kWh），主要因浙江电网煤电比例高。按EU PEF方法学重算（含运输）后数值可能更高",
+        "how_to_obtain": "要求浙江锂宸新能源提供LCA数据，按EU 2023/1542 Annex II方法学编制碳足迹声明。考虑工厂绿电采购降低碳强度",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "CO2",
+      "from_item": "CO2-B04 电池碳足迹",
+      "to_domain": "Battery",
+      "to_item": "BAT-A01 碳足迹声明",
+      "issue": "车辆CO2排放（0g/km尾气）与电池碳足迹（105 kg CO₂e/kWh）是两个不同概念。Battery Regulation Art.7要求独立的电池碳足迹声明"
+    },
+    {
+      "from_domain": "CO2",
+      "from_item": "CO2-B03 WLTP测试",
+      "to_domain": "ISC",
+      "to_item": "在用车能耗一致性",
+      "issue": "WLTP型式认证能耗值将作为ISC在用监控的基准。N1 BEV商用车实际能耗受载重影响大，满载能耗可能显著偏离型式认证值"
+    }
+  ]
+}

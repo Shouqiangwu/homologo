@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "vehicle": "StarSea X7",
+    "vehicle_cn": "星海X7",
+    "domain": "ELV",
+    "domain_cn": "报废车辆",
+    "regulation": "EU 2000/53/EC + EU 2023/0284(COD)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 2,
+    "fail": 3,
+    "needs_evidence": 3
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "ELV-A01",
+        "item": "可回收利用率",
+        "item_en": "Recyclability / Recoverability Rate",
+        "regulation": "EU 2005/64/EC Art.4 + ISO 22628",
+        "requirement": "M1车辆可再利用/可回收率≥85%（质量比），可再利用/可利用率≥95%",
+        "actual": "可回收率89%，可利用率96%",
+        "basis": "星海X7整车质量2350kg，按ISO 22628方法学计算：金属件（钢/铝）占比高可回收，电池包单独回收。可回收率89%>85%目标，可利用率96%>95%目标"
+      },
+      {
+        "id": "ELV-A02",
+        "item": "六价铬禁令",
+        "item_en": "Hexavalent Chromium Ban",
+        "regulation": "ELV Annex II Entry 3",
+        "requirement": "禁止在车辆中使用六价铬（防腐涂层等）",
+        "actual": "未使用六价铬防腐涂层，已替换为三价铬或锌铝涂层",
+        "basis": "车身和底盘防腐工艺已从六价铬钝化转为三价铬钝化/锌铝涂层。紧固件供应商确认无Cr6+使用"
+      }
+    ],
+    "fail": [
+      {
+        "id": "ELV-B01",
+        "item": "铅焊料豁免文档",
+        "item_en": "Lead Solder Exemption Documentation",
+        "regulation": "ELV Annex II Entry 1(a)",
+        "requirement": "电子零部件焊料含铅可豁免，但需提供正式豁免声明文档",
+        "actual": "部分ECU和传感器使用含铅焊料，但豁免声明文档不完整",
+        "gap": "ELV Annex II Entry 1(a)允许电子零部件焊料含铅，但OEM需编制正式豁免清单，列明每个含铅零部件及其适用的豁免条目。星海X7的豁免文档缺失多个ECU和传感器的声明",
+        "recommendation": "(a) 收集所有电子零部件供应商的含铅焊料声明；(b) 编制完整的ELV Annex II豁免清单；(c) 按EU型式认证要求格式整理文档",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "ELV-B02",
+        "item": "拆解手册EU格式",
+        "item_en": "Dismantling Manual EU Format",
+        "regulation": "ELV Dir. Art.8(3) + EU 2023/0284 Art.4",
+        "requirement": "OEM须提供符合EU标准的拆解手册，供报废处理企业使用",
+        "actual": "仅有中文版拆解手册，未按EU/IDIS格式编制",
+        "gap": "现有拆解手册为中国国内标准格式（中文），缺少EU要求的特定内容：有害物质位置标识、推荐拆解顺序、专用工具清单、BEV高压安全操作流程",
+        "recommendation": "(a) 将拆解手册翻译为英文并增加EU目标国语言版本；(b) 补充BEV高压电池拆解安全流程；(c) 按IDIS数据格式标准重新编制；(d) 增加有害物质位置图",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ELV-B03",
+        "item": "塑料零部件材料标识",
+        "item_en": "Plastic Component Material Marking",
+        "regulation": "ELV Dir. Art.4(1)(b) + ISO 11469",
+        "requirement": "质量>100g的塑料零部件须按ISO 11469标记材料类型",
+        "actual": "部分内饰塑料件缺少ISO 11469材料标识",
+        "gap": "中国国标GB/T 16288与ISO 11469在标记格式上存在差异。部分供应商按国标标记，未符合ISO 11469格式要求",
+        "recommendation": "(a) 排查所有>100g塑料零部件的标记情况；(b) 更新模具或加贴标签使标记符合ISO 11469；(c) 更新供应商零部件图纸要求",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "ELV-C01",
+        "item": "新ELV提案再生材料含量目标",
+        "item_en": "New ELV Proposal Recycled Content Targets",
+        "regulation": "EU 2023/0284(COD) Art.6",
+        "evidence_needed": "整车再生塑料和再生钢/铝使用比例数据",
+        "current_status": "新ELV提案要求再生塑料≥25%（其中≥25%来自报废车辆）、再生钢≥20%、再生铝≥10%。星海X7尚未统计再生材料使用数据",
+        "gap_note": "新ELV提案尚在立法过程中，但预计2026-2027年通过。中国供应链对再生材料溯源和认证体系不熟悉，需提前准备",
+        "how_to_obtain": "向材料供应商收集再生材料比例数据，建立材料溯源体系。评估是否需调整材料采购策略以满足再生含量目标",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "ELV-C02",
+        "item": "电池回收率证明",
+        "item_en": "Battery Recycling Rate Certification",
+        "regulation": "EU 2023/1542 Art.71 (Battery Regulation) + ELV Dir.",
+        "evidence_needed": "NCM811电池包回收工艺及预期回收率文件",
+        "current_status": "宁德电池的EU端回收合作伙伴和回收工艺方案未确认",
+        "gap_note": "Battery Regulation要求锂电池回收率2027年≥50%，2031年≥70%（按质量计）。电池回收率同时计入ELV整车可利用率。需指定EU端电池回收合作伙伴",
+        "how_to_obtain": "与EU电池回收企业（如Umicore、Redwood Materials EU等）建立合作协议，提供NCM811电池包的回收工艺方案和预期回收率数据",
+        "priority": "HIGH"
+      },
+      {
+        "id": "ELV-C03",
+        "item": "生产者延伸责任（EPR）注册",
+        "item_en": "Extended Producer Responsibility (EPR) Registration",
+        "regulation": "EU 2023/0284(COD) Art.19-22",
+        "evidence_needed": "EU目标市场国家的EPR注册或EPR组织加入确认",
+        "current_status": "首次进入EU市场，尚未在任何成员国注册EPR",
+        "gap_note": "新ELV提案将强化OEM的EPR义务，包括报废处理费用承担和回收率保证。各成员国EPR要求可能不同，需逐国注册",
+        "how_to_obtain": "确认首批目标市场国家（如德国/法国/荷兰），联系当地EPR组织完成注册",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-C02 电池回收率",
+      "to_domain": "Battery Regulation",
+      "to_item": "电池回收义务",
+      "issue": "BEV电池回收同时受Battery Regulation和ELV两个法规约束。电池回收率影响ELV整车可利用率计算"
+    },
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-B01 铅焊料豁免",
+      "to_domain": "REACH",
+      "to_item": "REACH-C03 焊料含铅SVHC",
+      "issue": "含铅焊料在ELV下可通过Annex II豁免，但在REACH下仍需履行SVHC申报义务。两个法规义务需协调管理"
+    },
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-B02 拆解手册",
+      "to_domain": "IDIS",
+      "to_item": "IDIS平台注册",
+      "issue": "拆解手册是IDIS平台数据的核心来源。拆解手册未按EU格式编制将直接导致IDIS注册无法完成"
+    }
+  ]
+}

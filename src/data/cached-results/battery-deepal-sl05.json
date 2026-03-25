@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "vehicle": "Deepal SL05",
+    "vehicle_cn": "深蓝SL05",
+    "domain": "Battery",
+    "domain_cn": "电池法规",
+    "regulation": "EU 2023/1542",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2023/1542 full text"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 3,
+    "fail": 3,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "BAT-G01",
+        "item": "电池分类正确",
+        "item_en": "Battery Classification",
+        "regulation": "EU 2023/1542 Art.1",
+        "requirement": "正确识别电池类别以适用对应法规要求",
+        "actual": "EV电池（为M1类车辆牵引供电，>25kg，62kWh LFP）",
+        "basis": "明确属于EV电池类别，适用最严格的法规要求层级。LFP化学体系不含钴和镍，简化了部分供应链义务"
+      },
+      {
+        "id": "BAT-A01",
+        "item": "碳足迹声明",
+        "item_en": "Carbon Footprint Declaration",
+        "regulation": "Art.7(1)",
+        "requirement": "EV电池自2025-02-18起必须有碳足迹声明，使用EU委托法规规定的方法学",
+        "actual": "按EU PEF方法学计算，75 kg CO₂e/kWh，含全生命周期（原材料至出厂含运输），已经第三方验证",
+        "basis": "深蓝SL05的CATL长沙工厂LFP电池已按EU PEF方法学完成碳足迹计算，经第三方验证。LFP化学体系碳足迹低于NCM811（无钴镍冶炼排放），75 kg CO₂e/kWh处于合理水平"
+      },
+      {
+        "id": "BAT-E01",
+        "item": "CE标志",
+        "item_en": "CE Marking",
+        "regulation": "Art.17-18",
+        "requirement": "2024-08-18起所有电池投放EU市场前必须标贴CE标志",
+        "actual": "已完成CE标志标贴",
+        "basis": "深蓝SL05电池已完成EU 2023/1542 Annex VIII符合性评估，具有CE标志。优于星海X7（CE标志缺失）"
+      }
+    ],
+    "fail": [
+      {
+        "id": "BAT-E02",
+        "item": "标签不完整（缺QR码）",
+        "item_en": "Labeling Incomplete (Missing QR Code)",
+        "regulation": "Art.13",
+        "requirement": "电池必须标注分类收集标志和QR码链接电池护照",
+        "actual": "有容量/电压/能量标签和CE标志，但缺少分类收集标志和QR码",
+        "gap": "标签部分合规但不完整：(a) 缺少crossed-out wheeled bin分类收集标志；(b) 无QR码（电池护照系统未就绪）",
+        "recommendation": "(a) 添加分类收集标志（设计已标准化，低成本）；(b) 电池护照系统建成后添加QR码；(c) 确保标签耐久性满足电池寿命要求",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-F02",
+        "item": "BMS SoH只读接口",
+        "item_en": "BMS SoH Read-Only Access",
+        "regulation": "Art.14",
+        "requirement": "BMS必须向电池所有者和第三方提供SoH相关数据只读访问",
+        "actual": "SoH算法为专有技术（CAN总线私有协议），不对外公开，无第三方只读接口",
+        "gap": "BMS数据完全封闭，违反数据开放要求。独立维修商有权访问维修相关数据",
+        "recommendation": "(a) 开发标准化BMS只读接口（建议ISO 15118或OBD-II扩展）；(b) 定义开放数据集（SoC/SoH/剩余容量/循环次数）；(c) SoH算法可保持专有，但输出结果必须可读",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "BAT-C01",
+        "item": "回收材料含量",
+        "item_en": "Recycled Content",
+        "regulation": "Art.8",
+        "requirement": "2028-08起信息披露，2031-08起强制最低回收材料比例（锂4%/铅85%）",
+        "actual": "锂回收含量2%（LFP无钴无镍，仅锂相关）",
+        "gap": "锂回收含量2%低于2031年4%目标。LFP电池不涉及钴和镍回收目标，但锂仍须达标",
+        "recommendation": "(a) 现在开始收集锂回收材料含量数据用于2028年信息披露；(b) 与CATL协商提高锂回收料比例；(c) LFP电池的优势是无钴无镍，简化了回收目标管理",
+        "priority": "LOW",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "BAT-D02",
+        "item": "供应链风险评估（锂溯源）",
+        "item_en": "Supply Chain Risk Assessment (Lithium Traceability)",
+        "regulation": "Art.49",
+        "evidence_needed": "锂、石墨供应链人权和环保风险评估报告（OECD尽职调查）",
+        "current_status": "锂来自智利和澳大利亚，一级供应商可见但未按OECD指南执行尽职调查",
+        "gap_note": "2027-08-18强制。LFP电池无钴无镍降低了高风险矿产风险，但锂和石墨仍需OECD尽职调查。智利和澳大利亚锂矿风险低于刚果钴矿，但仍需正式评估文档",
+        "how_to_obtain": "向CATL长沙工厂索要锂和石墨供应链溯源报告。如无文档，需委托第三方审计",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "BAT-B01",
+        "item": "电池护照系统",
+        "item_en": "Battery Passport System",
+        "regulation": "Art.77",
+        "evidence_needed": "电池护照平台接入方案、数据元素定义、QR码生成方案",
+        "current_status": "未启动电池护照准备工作",
+        "gap_note": "2027-02强制。需12-18个月准备。深蓝SL05碳足迹数据已具备（pass），但护照系统的数据平台对接和QR码生成尚未开始",
+        "how_to_obtain": "关注EU电池护照平台进展（Battery Pass Consortium），准备数据接口和内容。碳足迹数据可直接导入",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-A01 碳足迹（已通过）",
+      "to_domain": "CO2",
+      "to_item": "供应链碳排放",
+      "issue": "深蓝SL05电池碳足迹已按EU PEF方法学完成并通过第三方验证，可支撑CO2领域的电池碳足迹声明需求"
+    },
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-D02 供应链锂溯源",
+      "to_domain": "REACH",
+      "to_item": "SVHC申报",
+      "issue": "LFP电池不含钴镍，简化了REACH SVHC筛查。但电解液LiPF6仍需评估"
+    },
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-F02 BMS数据开放",
+      "to_domain": "GDPR",
+      "to_item": "数据保护评估",
+      "issue": "BMS数据开放接口设计需考虑GDPR数据保护要求，特别是与个人数据（车辆使用模式）的关联"
+    }
+  ]
+}

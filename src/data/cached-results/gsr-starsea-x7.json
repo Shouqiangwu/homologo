@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "vehicle": "StarSea X7",
+    "vehicle_cn": "星海X7",
+    "domain": "GSR",
+    "domain_cn": "通用安全法规",
+    "regulation": "EU 2019/2144",
+    "generated_at": "2026-03-24",
+    "model": "claude-sonnet-4-20250514",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 12,
+    "pass": 3,
+    "fail": 7,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "GSR-A01",
+        "item": "AEB系统安装（C2C）",
+        "item_en": "AEB System Installation (C2C)",
+        "regulation": "R152 §5.2.1",
+        "requirement": "M1车辆必须安装覆盖C2C场景的AEB系统",
+        "actual": "已安装，支持前方车辆检测（C2C）",
+        "basis": "《星海X7 ADAS系统设计说明书》第3.1节确认C2C功能已安装，满足基本安装要求"
+      },
+      {
+        "id": "GSR-A04",
+        "item": "AEB系统安装（C2P行人）",
+        "item_en": "AEB System Installation (C2P Pedestrian)",
+        "regulation": "R152 §5.2.2",
+        "requirement": "M1车辆必须安装覆盖C2P场景的AEB系统",
+        "actual": "已安装，支持横穿行人检测，速度范围20-60km/h",
+        "basis": "C2P功能已安装。工作速度范围需在型式认证测试中进一步验证是否满足全部场景要求"
+      },
+      {
+        "id": "GSR-A10",
+        "item": "ELKS车道保持系统",
+        "item_en": "ELKS Lane Keeping System",
+        "regulation": "EU 2021/646",
+        "requirement": "M1车辆须安装ELKS，提供偏离警告和纠正功能",
+        "actual": "已安装，≥60km/h激活，声觉警告+纠正转向力矩，打灯时不干预",
+        "basis": "系统具备警告和纠正两级功能，转向灯抑制逻辑符合法规要求"
+      }
+    ],
+    "fail": [
+      {
+        "id": "GSR-A02",
+        "item": "AEB C2C性能 — 42km/h零接触",
+        "item_en": "AEB C2C Performance — 42km/h Zero Contact",
+        "regulation": "R152 §5.2.1.4 Table",
+        "requirement": "C2C静止目标，42km/h时最大残余碰撞速度 = 0 km/h",
+        "actual": "零接触速度仅40km/h",
+        "gap": "差距2km/h。42km/h是法规硬性阈值，40km/h不满足",
+        "recommendation": "优化AEB制动控制算法和传感器识别提前量，将零接触速度从40km/h提升至≥42km/h。安排R152型式认证测试验证",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A03",
+        "item": "AEB C2C性能 — 60km/h残余速度",
+        "item_en": "AEB C2C Performance — 60km/h Residual Speed",
+        "regulation": "R152 §5.2.1.4 Table",
+        "requirement": "C2C静止目标，60km/h时残余碰撞速度 ≤ 35km/h",
+        "actual": "残余碰撞速度38km/h",
+        "gap": "超出限值3km/h。速度减少22km/h，要求≥25km/h",
+        "recommendation": "提升60km/h场景下制动力：(a) 提前触发时机；(b) 提升制动减速度上限；(c) 优化远距离目标识别能力",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A06",
+        "item": "AEB骑行者检测（C2B）",
+        "item_en": "AEB Cyclist Detection (C2B)",
+        "regulation": "R152.02 §5.2.3",
+        "requirement": "2026-07-07起所有新M1车辆强制C2B功能",
+        "actual": "功能完全缺失，计划在下一代软件版本加入",
+        "gap": "C2B功能为零，2026-07-07后无法注册销售",
+        "recommendation": "(a) 加速骑行者检测开发和验证；(b) 增加EU常见骑行者训练数据；(c) 评估现有传感器是否足够检测横穿骑行者；(d) 安排R152.02型式认证测试",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A15",
+        "item": "ISA欧洲限速标志识别",
+        "item_en": "ISA EU Speed Sign Recognition",
+        "regulation": "EU 2021/1958 Art.4(1)",
+        "requirement": "ISA必须识别EU/EEA成员国限速标志格式",
+        "actual": "仅支持中国GB5768标准限速标志",
+        "gap": "完全不覆盖EU/EEA标志。欧洲维也纳公约体系标志与中国标志差异显著",
+        "recommendation": "(a) 开发欧洲限速标志识别模型；(b) 使用EU 2021/1958 Annex标志目录训练；(c) 地图供应商从高德切换至HERE/TomTom；(d) EU实际道路验证≥90%准确率",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A27",
+        "item": "ADDW数据记录限制",
+        "item_en": "ADDW Data Recording Restriction",
+        "regulation": "EU 2023/2590 Art.9 + EU 2019/2144 Art.7(3)",
+        "requirement": "ADDW不得持续记录驾驶员数据，处理后必须立即删除",
+        "actual": "DMS图像数据实时上传至星海云平台用于AI训练",
+        "gap": "三重违规：(a) 实时上传=持续记录；(b) 云端存储≠立即删除；(c) 第三方可能接触数据",
+        "recommendation": "(a) 停止DMS数据云端上传；(b) 改为车端闭环处理；(c) 如需改进模型，考虑联邦学习或差分隐私；(d) 联合GDPR领域评估",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-C03",
+        "item": "EDR数据时间窗口",
+        "item_en": "EDR Data Time Window",
+        "regulation": "EU 2022/545",
+        "requirement": "碰撞前5秒至碰撞后0.3秒",
+        "actual": "碰撞前3秒至碰撞后0.5秒",
+        "gap": "碰撞前记录窗口不足：要求5秒，实际3秒，差2秒",
+        "recommendation": "扩展EDR循环缓冲区，将碰撞前记录窗口从3秒扩展至≥5秒。主要是存储和软件修改，不涉及硬件更换",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-C04",
+        "item": "EDR不记录VIN后4位",
+        "item_en": "EDR VIN Tail Anonymization",
+        "regulation": "EU 2019/2144 Art.8(5)",
+        "requirement": "EDR不得记录VIN后4位数字",
+        "actual": "EDR记录完整VIN",
+        "gap": "中国国标GB 39732-2020要求完整VIN，EU明确禁止后4位。需区域化配置",
+        "recommendation": "(a) 修改EDR软件，VIN仅记录前13位；(b) 实现中国/EU区域配置功能；(c) 验证双版本兼容性",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "GSR-D01",
+        "item": "CSMS组织级证书",
+        "item_en": "CSMS Organizational Certificate",
+        "regulation": "R155 §7.2",
+        "evidence_needed": "EU型式认证机构颁发的CSMS证书",
+        "current_status": "已通过中国ISO/SAE 21434认证，EU CSMS认证筹备中（预计2026年Q2）",
+        "gap_note": "ISO/SAE 21434 ≠ CSMS证书。CSMS必须由EU认证机构（KBA/RDW等）颁发。无CSMS→无R155→无WVTA",
+        "how_to_obtain": "加快EU CSMS认证进程，选择认证机构（建议KBA或e4荷兰RDW），确保2026年Q2前完成",
+        "priority": "HIGH"
+      },
+      {
+        "id": "GSR-E01",
+        "item": "酒精锁预留安装接口",
+        "item_en": "Alcohol Interlock Interface Reservation",
+        "regulation": "EU 2021/1243 + EN 50436",
+        "evidence_needed": "酒精锁预留接口技术图纸、电气规格、EN 50436兼容性声明",
+        "current_status": "文档中完全未提及酒精锁相关内容",
+        "gap_note": "无法判定是否已预留接口。如未预留，需在电气架构中增加（涉及线束修改）",
+        "how_to_obtain": "向OEM电气系统设计部门确认接口情况，索要《电气系统设计说明书》或《整车线束图》",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-A27 DMS数据上传",
+      "to_domain": "GDPR",
+      "to_item": "DMS生物识别数据处理",
+      "issue": "DMS面部特征数据属于GDPR Art.9特殊类别数据（生物识别），实时上传云端同时违反GSR数据限制和GDPR数据保护要求"
+    },
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-C04 EDR VIN数据",
+      "to_domain": "GDPR",
+      "to_item": "EDR数据隐私",
+      "issue": "EDR记录完整VIN涉及个人数据处理。EU要求匿名化VIN后4位以保护车主隐私"
+    },
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-D01 CSMS认证",
+      "to_domain": "GDPR",
+      "to_item": "DPIA评估",
+      "issue": "CSMS中的数据保护要求需与GDPR协调，CSMS完成后需联合评估DPIA要求"
+    },
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-A15 ISA地图数据",
+      "to_domain": "GDPR",
+      "to_item": "地图数据个人数据处理",
+      "issue": "ISA切换至HERE/TomTom时，地图数据中可能涉及位置个人数据处理，需GDPR评估"
+    }
+  ]
+}

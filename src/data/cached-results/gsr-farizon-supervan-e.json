@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "GSR",
+    "domain_cn": "通用安全法规",
+    "regulation": "EU 2019/2144",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 14,
+    "pass": 3,
+    "fail": 9,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "GSR-A01",
+        "item": "AEB系统安装（C2C）",
+        "item_en": "AEB System Installation (C2C)",
+        "regulation": "R152 §5.2.1",
+        "requirement": "N1车辆必须安装覆盖C2C场景的AEB系统",
+        "actual": "已安装，支持前方车辆检测（C2C），零接触速度42km/h",
+        "basis": "C2C功能已安装且达到42km/h零接触速度，满足R152基本性能要求"
+      },
+      {
+        "id": "GSR-A04",
+        "item": "AEB系统安装（C2P行人）",
+        "item_en": "AEB System Installation (C2P Pedestrian)",
+        "regulation": "R152 §5.2.2",
+        "requirement": "N1车辆必须安装覆盖C2P场景的AEB系统",
+        "actual": "已安装，支持横穿行人检测，速度范围20-60km/h",
+        "basis": "C2P功能已安装。N1车辆制动距离较长，工作速度范围需在型式认证测试中进一步验证"
+      },
+      {
+        "id": "GSR-A10",
+        "item": "ELKS车道保持系统",
+        "item_en": "ELKS Lane Keeping System",
+        "regulation": "EU 2021/646",
+        "requirement": "N1车辆须安装ELKS，提供偏离警告和纠正功能",
+        "actual": "已安装，≥60km/h激活，声觉警告+纠正转向力矩，打灯时不干预",
+        "basis": "系统具备警告和纠正两级功能，转向灯抑制逻辑符合法规要求"
+      }
+    ],
+    "fail": [
+      {
+        "id": "GSR-A03",
+        "item": "AEB C2C性能 — 60km/h残余速度",
+        "item_en": "AEB C2C Performance — 60km/h Residual Speed",
+        "regulation": "R152 §5.2.1.4 Table",
+        "requirement": "C2C静止目标，60km/h时残余碰撞速度 ≤ 35km/h",
+        "actual": "残余碰撞速度36km/h",
+        "gap": "超出限值1km/h。N1商用车制动距离较长，车辆满载时制动性能进一步下降",
+        "recommendation": "(a) 优化AEB制动控制策略，考虑N1车辆满载工况；(b) 提升制动力分配算法；(c) 安排R152型式认证测试验证空载/满载两种工况",
+        "priority": "MEDIUM",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A06",
+        "item": "AEB骑行者检测（C2B）",
+        "item_en": "AEB Cyclist Detection (C2B)",
+        "regulation": "R152.02 §5.2.3",
+        "requirement": "2026-07-07起所有新N1车辆强制C2B功能",
+        "actual": "功能完全缺失，N1车型暂未规划骑行者检测",
+        "gap": "C2B功能为零。商用车在城市配送中频繁与骑行者共享道路，缺失C2B风险更高",
+        "recommendation": "(a) 加速骑行者检测开发，优先覆盖EU城市配送场景；(b) 增加EU常见cargo bike等大型骑行者训练数据；(c) 评估现有1前摄像头+1前雷达是否足够；(d) 安排R152.02型式认证测试",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A15",
+        "item": "ISA欧洲限速标志识别",
+        "item_en": "ISA EU Speed Sign Recognition",
+        "regulation": "EU 2021/1958 Art.4(1)",
+        "requirement": "ISA必须识别EU/EEA成员国限速标志格式",
+        "actual": "仅支持中国GB5768标准限速标志，仅摄像头识别（无地图融合），准确率72%",
+        "gap": "三重严重缺陷：(a) 完全不覆盖EU/EEA标志；(b) 无地图数据融合校验；(c) 即使中国标志准确率也仅72%，远低于EU ≥90%要求。无触觉反馈",
+        "recommendation": "(a) 开发欧洲限速标志识别模型；(b) 接入HERE/TomTom地图数据进行融合；(c) 增加触觉反馈（油门踏板阻力）；(d) 严格按EU 2021/1958 Annex标志目录训练和验证",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A20",
+        "item": "DDAW驾驶员困倦警告",
+        "item_en": "DDAW Driver Drowsiness and Attention Warning",
+        "regulation": "EU 2021/1341",
+        "requirement": "N1车辆须安装DDAW系统",
+        "actual": "未安装DDAW系统。车辆参数中标注70km/h激活，但系统实际未安装",
+        "gap": "DDAW功能完全缺失。商用配送车驾驶员长时间驾驶疲劳风险高，EU法规对N1车辆强制要求DDAW",
+        "recommendation": "(a) 开发或集成DDAW系统（基于方向盘操作模式分析或DMS摄像头）；(b) 当前车辆无DMS摄像头，需新增硬件或采用方向盘分析方案；(c) 降低激活速度阈值至符合法规要求",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-A25",
+        "item": "ADDW高级驾驶员注意力分散警告",
+        "item_en": "ADDW Advanced Driver Distraction Warning",
+        "regulation": "EU 2023/2590",
+        "requirement": "ADDW系统须通过DMS摄像头监测驾驶员注意力分散",
+        "actual": "未安装ADDW系统，车辆无DMS摄像头",
+        "gap": "ADDW需要DMS摄像头硬件，但远程SuperVAN E完全未配备。N1车辆ADDW强制日期需确认（可能晚于M1），但作为新型式认证车辆仍需满足",
+        "recommendation": "(a) 确认N1类ADDW强制适用日期（EU 2019/2144 Annex II时间表）；(b) 如2026年型式认证须满足，需新增DMS摄像头硬件和ADDW软件；(c) 确保ADDW数据处理符合GSR隐私要求（车端闭环处理）",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-C03",
+        "item": "EDR数据时间窗口",
+        "item_en": "EDR Data Time Window",
+        "regulation": "EU 2022/545",
+        "requirement": "碰撞前5秒至碰撞后0.3秒",
+        "actual": "碰撞前3秒至碰撞后0.3秒",
+        "gap": "碰撞前记录窗口不足：要求5秒，实际3秒，差2秒。与中国GB 39732-2020的3秒要求一致但不满足EU要求",
+        "recommendation": "扩展EDR循环缓冲区，将碰撞前记录窗口从3秒扩展至≥5秒。主要是存储和软件修改，不涉及硬件更换",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-C04",
+        "item": "EDR不记录VIN后4位",
+        "item_en": "EDR VIN Tail Anonymization",
+        "regulation": "EU 2019/2144 Art.8(5)",
+        "requirement": "EDR不得记录VIN后4位数字",
+        "actual": "EDR记录完整VIN",
+        "gap": "中国国标GB 39732-2020要求完整VIN，EU明确禁止后4位。需区域化配置",
+        "recommendation": "(a) 修改EDR软件，VIN仅记录前13位；(b) 实现中国/EU区域配置功能；(c) 验证双版本兼容性",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "GSR-D02",
+        "item": "RXSWIN定义",
+        "item_en": "RXSWIN Definition",
+        "regulation": "R156 §7.1.2.1",
+        "requirement": "与法规型式认证相关的软件须定义RXSWIN（法规软件识别号）",
+        "actual": "未定义RXSWIN，无软件版本管理体系",
+        "gap": "RXSWIN是R156 SUMS认证的关键要素。未定义RXSWIN将导致无法追踪软件更新对型式认证的影响",
+        "recommendation": "(a) 为所有法规相关软件定义RXSWIN编码体系；(b) 建立软件版本与RXSWIN的映射关系；(c) 将RXSWIN纳入R156 SUMS认证流程",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GSR-D03",
+        "item": "无OTA能力",
+        "item_en": "No OTA Update Capability",
+        "regulation": "R156",
+        "requirement": "如支持OTA，须通过R156 SUMS认证；如不支持OTA，须有替代软件更新管理方案",
+        "actual": "不支持OTA更新，无远程软件更新能力",
+        "gap": "商用车队管理场景下无OTA意味着所有软件更新需回厂执行，对EU市场运营极为不便。虽然法规不强制OTA，但缺少OTA使ISC召回和软件修复效率极低",
+        "recommendation": "(a) 短期：建立EU市场线下软件更新服务网络；(b) 中长期：开发OTA能力并通过R156认证；(c) 制定软件更新管理计划（SUMS）覆盖线下更新场景",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "GSR-D01",
+        "item": "CSMS组织级证书",
+        "item_en": "CSMS Organizational Certificate",
+        "regulation": "R155 §7.2",
+        "evidence_needed": "EU型式认证机构颁发的CSMS证书",
+        "current_status": "尚未启动CSMS认证流程，ISO/SAE 21434认证也未完成",
+        "gap_note": "完全未启动网络安全管理体系建设。无CSMS→无R155→无WVTA。远程商用车作为中国商用车企，对EU网络安全法规体系不熟悉，差距比乘用车企业更大",
+        "how_to_obtain": "立即启动CSMS体系建设，选择EU认证机构（KBA/RDW），预计需12-18个月完成认证",
+        "priority": "HIGH"
+      },
+      {
+        "id": "GSR-E01",
+        "item": "酒精锁预留安装接口",
+        "item_en": "Alcohol Interlock Interface Reservation",
+        "regulation": "EU 2021/1243 + EN 50436",
+        "evidence_needed": "酒精锁预留接口技术图纸、电气规格、EN 50436兼容性声明",
+        "current_status": "文档中完全未提及酒精锁相关内容",
+        "gap_note": "无法判定是否已预留接口。商用车辆更可能被要求强制安装酒精锁（某些成员国已有此要求）",
+        "how_to_obtain": "向OEM电气系统设计部门确认接口情况，索要《电气系统设计说明书》或《整车线束图》",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-A20 DDAW缺失",
+      "to_domain": "GDPR",
+      "to_item": "驾驶行为数据采集",
+      "issue": "如选择基于DMS摄像头方案实现DDAW，需同步评估GDPR对面部特征数据的保护要求。商用车B2B场景下驾驶员仍是数据主体"
+    },
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-C04 EDR VIN数据",
+      "to_domain": "GDPR",
+      "to_item": "EDR数据隐私",
+      "issue": "EDR记录完整VIN涉及个人数据处理。EU要求匿名化VIN后4位以保护车主/运营商隐私"
+    },
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-D01 CSMS认证",
+      "to_domain": "GDPR",
+      "to_item": "DPIA评估",
+      "issue": "CSMS中的数据保护要求需与GDPR协调。商用车队管理系统的GPS和载重数据传输需同步评估"
+    },
+    {
+      "from_domain": "GSR",
+      "from_item": "GSR-A15 ISA功能缺失",
+      "to_domain": "ISC",
+      "to_item": "ISA在用性能监控",
+      "issue": "ISA功能基本不可用于EU市场，ISC层面的在用监控无从谈起。需先解决GSR层面的ISA功能缺陷"
+    }
+  ]
+}

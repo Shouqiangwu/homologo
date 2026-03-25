@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "REACH",
+    "domain_cn": "化学品合规",
+    "regulation": "EU 1907/2006 (REACH)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 1,
+    "fail": 5,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "REACH-A01",
+        "item": "石棉禁令合规",
+        "item_en": "Asbestos Ban Compliance",
+        "regulation": "REACH Annex XVII Entry 6",
+        "requirement": "禁止在任何物品中使用石棉纤维",
+        "actual": "制动片、密封件均未使用石棉材料",
+        "basis": "中国车企自2000年代起已普遍淘汰石棉。远程SuperVAN E使用半金属制动片，无石棉风险"
+      }
+    ],
+    "fail": [
+      {
+        "id": "REACH-B01",
+        "item": "IMDS材料数据报告",
+        "item_en": "IMDS Material Data Reporting",
+        "regulation": "REACH Art.33 + GADSL (行业标准)",
+        "requirement": "整车及零部件材料数据需在IMDS（国际材料数据系统）中完整报告",
+        "actual": "完全未在IMDS中提交任何材料数据表，中国供应商对IMDS完全不熟悉",
+        "gap": "远程商用车供应链以中国二三线供应商为主，对EU材料合规体系完全陌生。IMDS/CAMDS系统均未使用。供应商合规意识和能力均为零起点",
+        "recommendation": "(a) 对全部Tier1/Tier2供应商进行IMDS培训（预计涉及100+家供应商）；(b) 聘请专业IMDS咨询公司协助从零建立数据体系；(c) 分批录入，优先覆盖关键零部件（电池、线束、内饰、密封件）；(d) 预计需6-12个月完成全车IMDS报告",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "REACH-B02",
+        "item": "SCIP数据库通报",
+        "item_en": "SCIP Database Notification",
+        "regulation": "REACH Art.9(1)(i) + WFD Art.9(1)(i)",
+        "requirement": "含SVHC>0.1% w/w的物品必须向ECHA SCIP数据库通报",
+        "actual": "未向SCIP数据库提交任何通报，甚至不知道SCIP数据库的存在",
+        "gap": "SCIP通报是EU强制义务（2021年1月5日起生效）。远程SuperVAN E作为含多种潜在SVHC的复杂物品，需完成SVHC筛查后逐零部件通报。中国商用车供应商对SVHC概念不了解",
+        "recommendation": "(a) 首先进行全车SVHC筛查（XRF扫描+化学分析）；(b) 在ECHA SCIP门户批量提交通报；(c) 建立持续更新机制（SVHC候选清单每年更新两次）；(d) 需专门预算和人力投入",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "REACH-B03",
+        "item": "供应链SVHC沟通义务",
+        "item_en": "Supply Chain SVHC Communication",
+        "regulation": "REACH Art.33(1)",
+        "requirement": "进口商须向下游用户和消费者传递SVHC信息（45天内免费响应）",
+        "actual": "无SVHC信息沟通流程，EU经销商/车队客户无法回复任何SVHC查询",
+        "gap": "REACH Art.33要求：下游用户或消费者查询SVHC信息时，45天内免费提供。远程商用车EU渠道完全没有准备此流程。B2B车队客户可能主动要求SVHC声明",
+        "recommendation": "(a) 建立EU端SVHC信息查询响应流程和专职团队；(b) 编制标准化SVHC声明文件（至少英文版）；(c) 培训EU销售和售后人员响应查询",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "REACH-B04",
+        "item": "Annex XVII限制物质全面筛查",
+        "item_en": "Annex XVII Restricted Substances Full Screening",
+        "regulation": "REACH Art.67 + Annex XVII",
+        "requirement": "物品中不得含有超过Annex XVII限制浓度的受限物质",
+        "actual": "大宗材料（钢/铝）可能合规，但内饰材料、橡胶密封件、电子零部件未经筛查",
+        "gap": "未进行系统性Annex XVII筛查。商用车内饰材料标准可能低于乘用车，橡胶密封件可能含超标PAHs（多环芳烃），电子零部件可能含超标镉/铅",
+        "recommendation": "(a) 委托第三方实验室（SGS/Bureau Veritas）对高风险零部件进行Annex XVII全面筛查；(b) 重点关注：橡胶件PAHs、内饰件甲醛/VOC、电子件铅镉；(c) 建立合格供应商名录",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "REACH-B05",
+        "item": "EU进口商角色义务",
+        "item_en": "EU Importer Role Obligations",
+        "regulation": "REACH Art.7 + Art.33",
+        "requirement": "物品进口商须履行REACH注册和通报义务",
+        "actual": "未明确EU进口商身份和REACH义务分配",
+        "gap": "远程商用车是中国制造商，在EU销售需指定进口商（可为EU子公司或独立进口商）。进口商须承担REACH Art.7（物品中物质注册/通报）和Art.33（SVHC沟通）义务。目前无EU进口商承担此角色",
+        "recommendation": "(a) 确定EU进口商身份（建立EU子公司或指定授权进口商）；(b) 明确进口商的REACH义务范围；(c) 进口商需具备REACH合规能力或委托Only Representative(OR)",
+        "priority": "HIGH",
+        "blocking": true
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "REACH-C01",
+        "item": "LFP电池电解液SVHC筛查",
+        "item_en": "LFP Battery Electrolyte SVHC Screening",
+        "regulation": "REACH Art.33 + SVHC Candidate List",
+        "evidence_needed": "LFP电池电解液（LiPF6/碳酸酯溶剂）的SVHC筛查报告",
+        "current_status": "浙江锂宸100kWh LFP电池使用LiPF6电解液，但未提供EU标准的SVHC筛查",
+        "gap_note": "LFP虽不含钴/镍SVHC，但电解液溶剂（碳酸乙烯酯EC/碳酸二甲酯DMC等）和添加剂可能含有SVHC候选清单物质。需确认电解液完整化学组成",
+        "how_to_obtain": "要求浙江锂宸提供电解液完整化学组成声明，由第三方实验室进行SVHC筛查测试",
+        "priority": "HIGH"
+      },
+      {
+        "id": "REACH-C02",
+        "item": "线束DEHP和邻苯二甲酸酯筛查",
+        "item_en": "Wiring Harness DEHP and Phthalate Screening",
+        "regulation": "REACH Annex XIV (Authorization) + Annex XVII Entry 51",
+        "evidence_needed": "线束PVC绝缘层中DEHP等邻苯二甲酸酯含量检测报告",
+        "current_status": "线束供应商为中国本土供应商，未提供DEHP含量声明",
+        "gap_note": "中国商用车线束供应商PVC配方中使用DEHP作为增塑剂的风险较高（成本低）。需检测四项邻苯二甲酸酯（DEHP/BBP/DBP/DIBP），N1商用车线束用量大，风险面更广",
+        "how_to_obtain": "送检线束样品进行邻苯二甲酸酯四项检测。如超标，需要求供应商切换为DINP/DOTP等非SVHC增塑剂",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "REACH",
+      "from_item": "REACH-C01 LFP电池电解液",
+      "to_domain": "ELV",
+      "to_item": "电池有害物质回收处理",
+      "issue": "LFP电池电解液有害物质同时受REACH SVHC申报义务和ELV/Battery Regulation回收处理要求约束"
+    },
+    {
+      "from_domain": "REACH",
+      "from_item": "REACH-B01 IMDS报告缺失",
+      "to_domain": "ELV",
+      "to_item": "ELV可回收率计算材料数据",
+      "issue": "IMDS材料数据是ELV可回收率计算（ISO 22628）的基础数据来源。IMDS完全缺失将导致ELV可回收率无法正式计算"
+    },
+    {
+      "from_domain": "REACH",
+      "from_item": "REACH-B05 EU进口商角色",
+      "to_domain": "GDPR",
+      "to_item": "GDPR EU代表",
+      "issue": "REACH进口商和GDPR EU代表可由同一EU法人实体承担，协调设置可降低EU合规运营成本"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "vehicle": {
+    "name": "Farizon SuperVAN E",
+    "name_cn": "远程SuperVAN E",
+    "type": "BEV Delivery Van",
+    "category": "N1",
+    "manufacturer": "吉利远程 Geely Farizon",
+    "target_markets": ["EU"],
+    "production_year": 2026,
+    "max_mass_kg": 3500,
+    "max_speed_kmh": 120
+  },
+  "gsr": {
+    "aeb": {
+      "c2c_installed": true,
+      "c2c_zero_contact_speed_kmh": 42,
+      "c2c_60kmh_residual_speed_kmh": 36,
+      "c2p_installed": true,
+      "c2p_speed_range_kmh": "20-60",
+      "c2b_installed": false,
+      "c2b_status": "骑行者AEB缺失，N1车型暂未规划"
+    },
+    "isa": {
+      "speed_limit_source": ["camera"],
+      "sign_standard": "GB5768（仅中国标准）",
+      "eu_sign_support": false,
+      "map_provider": "无地图融合",
+      "accuracy_percent": 72,
+      "feedback_types": ["visual"],
+      "haptic_feedback": false,
+      "can_be_overridden": true,
+      "default_on": true
+    },
+    "elks": {
+      "installed": true,
+      "activation_speed_kmh": 60,
+      "warning_type": "audio",
+      "correction_type": "steering_torque",
+      "turn_signal_suppression": true
+    },
+    "ddaw": {
+      "installed": false,
+      "method": "N/A",
+      "activation_speed_kmh": 70,
+      "warning_types": ["N/A"]
+    },
+    "addw": {
+      "installed": false,
+      "dms_camera": "N/A",
+      "distraction_threshold_seconds": "N/A",
+      "warning_type": "N/A",
+      "data_upload_to_cloud": false,
+      "cloud_purpose": "N/A"
+    },
+    "edr": {
+      "installed": true,
+      "trigger": "airbag_deployment",
+      "pre_crash_window_seconds": 3,
+      "post_crash_window_seconds": 0.3,
+      "data_elements": ["speed", "brake", "throttle", "seatbelt", "airbag"],
+      "vin_recording": "full",
+      "cloud_sync": false,
+      "cloud_sync_method": "N/A"
+    },
+    "cybersecurity": {
+      "iso_21434_certified": false,
+      "csms_certificate": false,
+      "csms_status": "尚未启动CSMS认证流程",
+      "ota_supported": false,
+      "ota_frequency": "N/A",
+      "rxswin_defined": false
+    },
+    "alcohol_interlock": {
+      "interface_reserved": "unknown",
+      "documentation": "文档中无相关描述"
+    },
+    "sensors": {
+      "front_camera": 1,
+      "front_radar": 1,
+      "corner_radar": 2,
+      "ultrasonic": 8,
+      "dms_camera": 0
+    }
+  },
+  "battery": {
+    "supplier": "浙江锂宸新能源科技",
+    "cell_chemistry": "LFP",
+    "capacity_kwh": 100,
+    "weight_kg": 680,
+    "factory_location": "中国浙江",
+    "classification": "EV电池（>25kg）",
+    "carbon_footprint": {
+      "value_kg_co2e_per_kwh": 105,
+      "methodology": "GB/T 24067（中国标准）",
+      "scope": "原材料至出厂（不含运输）",
+      "third_party_verified": false
+    },
+    "raw_materials": {
+      "cobalt_source": ["N/A（LFP无钴）"],
+      "lithium_source": ["中国江西", "澳大利亚"],
+      "nickel_source": ["N/A（LFP无镍）"],
+      "supply_chain_visibility": "仅一级供应商可见",
+      "oecd_due_diligence": false
+    },
+    "bms": {
+      "data_interface": "CAN",
+      "soh_algorithm": "proprietary",
+      "third_party_read_access": false
+    },
+    "labeling": {
+      "capacity_label": true,
+      "voltage_label": true,
+      "energy_label": false,
+      "ce_marking": false,
+      "collection_symbol": false,
+      "qr_code": false
+    },
+    "recycled_content": {
+      "cobalt_percent": "N/A",
+      "cobalt_source": "N/A（LFP无钴）",
+      "lithium_percent": 0,
+      "nickel_percent": "N/A",
+      "lead_percent": "N/A"
+    }
+  },
+  "gdpr": {
+    "connectivity": {
+      "tbox": "4G常时在线",
+      "remote_diagnostics": true,
+      "diagnostic_interval_minutes": 5,
+      "diagnostic_server": "中国杭州"
+    },
+    "data_collection": {
+      "vehicle_diagnostics": true,
+      "driving_behavior": true,
+      "location_data": true,
+      "voice_data": false,
+      "dms_image_data": false,
+      "data_purposes": ["fleet_management", "vehicle_tracking", "maintenance"]
+    },
+    "consent": {
+      "mechanism": "无（B2B车队车辆，无个人用户同意机制）",
+      "separate_purposes": false,
+      "in_vehicle_management": false
+    },
+    "data_storage": {
+      "location": "中国杭州数据中心",
+      "eu_data_center": false,
+      "sccs_signed": false,
+      "bcrs": false,
+      "tia_completed": false
+    },
+    "data_subject_rights": {
+      "access_method": "无（B2B模式，未设置数据主体权利通道）",
+      "processing_days": "N/A",
+      "in_vehicle_deletion": false,
+      "portability": false
+    },
+    "voice_assistant": {
+      "name": "N/A",
+      "processing_server": "N/A"
+    },
+    "navigation": {
+      "current_provider": "高德地图",
+      "planned_eu_provider": "未确定"
+    },
+    "app": {
+      "name": "远程车队管理平台",
+      "features": ["fleet_tracking", "charge_management", "payload_monitoring"]
+    },
+    "privacy_policy": {
+      "language": "中文",
+      "eu_version": false,
+      "dpo_appointed": false,
+      "eu_representative": false
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "gsr": {
+    "id": "gsr",
+    "name": "GSR",
+    "name_full": "General Safety Regulation",
+    "name_cn": "通用安全法规",
+    "regulation": "EU 2019/2144",
+    "depth": "deep",
+    "description_cn": "覆盖AEB、ISA、车道保持、驾驶员监测、EDR、网络安全等主动安全系统的强制要求",
+    "checklist": [
+      "AEB (C2C)",
+      "AEB (C2P行人)",
+      "AEB (C2B骑行者)",
+      "ISA 智能限速",
+      "ELKS 车道保持",
+      "DDAW 疲劳检测",
+      "ADDW 分心检测",
+      "EDR 事件记录",
+      "R155 网络安全",
+      "R156 软件更新",
+      "VRU 行人保护",
+      "酒精锁预留接口"
+    ]
+  },
+  "battery": {
+    "id": "battery",
+    "name": "Battery",
+    "name_full": "EU Battery Regulation",
+    "name_cn": "电池法规",
+    "regulation": "EU 2023/1542",
+    "depth": "deep",
+    "description_cn": "覆盖碳足迹声明、电池护照、回收材料含量、供应链尽职调查、标签标识、性能耐久性等",
+    "checklist": [
+      "碳足迹声明",
+      "碳足迹等级",
+      "电池护照",
+      "回收材料含量",
+      "供应链尽职调查",
+      "标签与CE标志",
+      "BMS数据接口",
+      "性能与耐久性"
+    ]
+  },
+  "gdpr": {
+    "id": "gdpr",
+    "name": "GDPR",
+    "name_full": "Connected Vehicle Data Compliance",
+    "name_cn": "车联网数据合规",
+    "regulation": "EU 2016/679",
+    "depth": "deep",
+    "description_cn": "覆盖车联网数据收集的合法性基础、同意管理、跨境传输、DMS生物识别数据、数据主体权利等",
+    "checklist": [
+      "合法性基础",
+      "同意机制",
+      "数据分类与映射",
+      "DMS生物识别数据",
+      "数据主体权利",
+      "跨境数据传输",
+      "DPIA评估",
+      "网络安全-GDPR交叉"
+    ]
+  },
+  "co2": {
+    "id": "co2",
+    "name": "CO2",
+    "name_full": "CO2 Emission Standards",
+    "name_cn": "CO2排放标准",
+    "regulation": "EU 2019/631",
+    "depth": "deep",
+    "description_cn": "覆盖车队CO2排放目标、年度监测报告、ZLEV积分机制、排放池协议和超标罚款",
+    "checklist": [
+      "车辆CO2排放值",
+      "ZLEV积分资格",
+      "车队排放池协议",
+      "年度监测注册",
+      "EEA排放数据报告",
+      "超标罚款风险评估"
+    ]
+  },
+  "reach": {
+    "id": "reach",
+    "name": "REACH",
+    "name_full": "Chemical Substance Compliance",
+    "name_cn": "化学品合规",
+    "regulation": "EU 1907/2006",
+    "depth": "deep",
+    "description_cn": "覆盖高关注物质(SVHC)筛查、IMDS数据报告、SCIP数据库通知、Annex XVII限制物质、授权物质管理",
+    "checklist": [
+      "SVHC候选清单筛查",
+      "SVHC通知义务",
+      "IMDS数据报告",
+      "SCIP数据库通知",
+      "Annex XVII限制物质",
+      "授权物质管理"
+    ]
+  },
+  "elv": {
+    "id": "elv",
+    "name": "ELV",
+    "name_full": "End-of-Life Vehicle Directive",
+    "name_cn": "报废车辆指令",
+    "regulation": "EU 2000/53/EC",
+    "depth": "deep",
+    "description_cn": "覆盖四大有害物质限制、可回收率/可利用率目标、拆解手册、新ELV提案下的再生材料和设计拆解要求",
+    "checklist": [
+      "铅含量与豁免",
+      "汞/镉/六价铬",
+      "可回收率 ≥85%",
+      "可利用率 ≥95%",
+      "拆解信息手册",
+      "新ELV提案要求"
+    ]
+  },
+  "f-gas": {
+    "id": "f-gas",
+    "name": "F-GAS",
+    "name_full": "Fluorinated Greenhouse Gas Regulation",
+    "name_cn": "含氟温室气体法规",
+    "regulation": "EU 2024/573",
+    "depth": "deep",
+    "description_cn": "覆盖车载空调制冷剂GWP限值、MAC指令型式认证、泄漏率要求、回收处置规范",
+    "checklist": [
+      "制冷剂GWP ≤150",
+      "MAC型式认证",
+      "泄漏率检测",
+      "制冷剂回收程序",
+      "替代制冷剂安全性"
+    ]
+  },
+  "isc": {
+    "id": "isc",
+    "name": "ISC",
+    "name_full": "In-Service Conformity",
+    "name_cn": "在用车符合性",
+    "regulation": "EU 2018/858 Art.52-54",
+    "depth": "deep",
+    "description_cn": "覆盖认证后排放一致性监测、ADAS系统在用性能验证、OTA更新影响评估、监测计划与报告",
+    "checklist": [
+      "排放ISC监测计划",
+      "ADAS在用性能监测",
+      "OTA更新影响评估",
+      "R156软件更新合规",
+      "ISC报告与记录"
+    ]
+  },
+  "idis": {
+    "id": "idis",
+    "name": "IDIS",
+    "name_full": "International Dismantling Information System",
+    "name_cn": "国际拆解信息系统",
+    "regulation": "IDIS / ISO 22628",
+    "depth": "deep",
+    "description_cn": "覆盖IDIS平台注册与信息提交、ISO 22628可回收率计算、BEV电池拆解专项信息",
+    "checklist": [
+      "IDIS平台注册",
+      "拆解信息上传",
+      "ISO 22628计算",
+      "BEV电池拆解信息",
+      "材料成分文档"
+    ]
+  }
+}

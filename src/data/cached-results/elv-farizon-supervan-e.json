@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "ELV",
+    "domain_cn": "报废车辆",
+    "regulation": "EU 2000/53/EC + EU 2023/0284(COD)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 9,
+    "pass": 1,
+    "fail": 5,
+    "needs_evidence": 3
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "ELV-A02",
+        "item": "六价铬禁令",
+        "item_en": "Hexavalent Chromium Ban",
+        "regulation": "ELV Annex II Entry 3",
+        "requirement": "禁止在车辆中使用六价铬（防腐涂层等）",
+        "actual": "未使用六价铬防腐涂层，已替换为三价铬或锌铝涂层",
+        "basis": "车身和底盘防腐工艺已从六价铬钝化转为环保工艺。紧固件供应商确认无Cr6+使用"
+      }
+    ],
+    "fail": [
+      {
+        "id": "ELV-A01",
+        "item": "可回收利用率",
+        "item_en": "Recyclability / Recoverability Rate",
+        "regulation": "EU 2005/64/EC Art.4 + ISO 22628",
+        "requirement": "N1车辆可再利用/可回收率≥85%（质量比），可再利用/可利用率≥95%",
+        "actual": "可回收率仅83%，可利用率93%",
+        "gap": "可回收率83%不达标（要求≥85%），可利用率93%不达标（要求≥95%）。主因：680kg LFP电池包占整车质量比例过高（约19.4%），电池回收率受限于当前LFP回收技术。商用车整车质量3500kg中电池占比远高于乘用车",
+        "recommendation": "(a) 与EU电池回收企业合作提升LFP回收率；(b) 优化车身其他材料可回收性（减少复合材料使用）；(c) 电池模组设计优化便于拆解和回收；(d) 可能需要重新设计部分非金属零部件以提升整车回收率至≥85%",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ELV-B01",
+        "item": "铅焊料豁免文档",
+        "item_en": "Lead Solder Exemption Documentation",
+        "regulation": "ELV Annex II Entry 1(a)",
+        "requirement": "电子零部件焊料含铅可豁免，但需提供正式豁免声明文档",
+        "actual": "中国供应商ECU和传感器大量使用含铅焊料，无任何豁免声明文档",
+        "gap": "商用车电子零部件供应商以中国本土为主，含铅焊料使用比例可能高于乘用车供应链。ELV Annex II允许豁免但需完整文档支撑，目前完全缺失",
+        "recommendation": "(a) 收集所有电子零部件供应商的含铅焊料声明；(b) 编制完整的ELV Annex II豁免清单；(c) 评估是否有部分零部件不适用豁免条目；(d) 推动供应商逐步转向无铅焊料",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "ELV-B02",
+        "item": "拆解手册完全缺失",
+        "item_en": "Dismantling Manual Completely Missing",
+        "regulation": "ELV Dir. Art.8(3) + EU 2023/0284 Art.4",
+        "requirement": "OEM须提供符合EU标准的拆解手册，供报废处理企业使用",
+        "actual": "无任何语言版本的EU格式拆解手册",
+        "gap": "不仅缺少翻译，而是完全没有按EU标准编制拆解手册。中国商用车市场对拆解信息的要求远低于EU。缺少BEV高压安全操作流程、有害物质位置标识、推荐拆解顺序等关键内容",
+        "recommendation": "(a) 从零编制EU标准拆解手册（英文+目标市场语言）；(b) 重点章节：LFP电池包高压安全拆解（100kWh/680kg为大型电池包）；(c) 委托有经验的EU拆解企业审阅手册实操性；(d) 按IDIS数据格式标准编制",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ELV-B03",
+        "item": "塑料零部件材料标识",
+        "item_en": "Plastic Component Material Marking",
+        "regulation": "ELV Dir. Art.4(1)(b) + ISO 11469",
+        "requirement": "质量>100g的塑料零部件须按ISO 11469标记材料类型",
+        "actual": "商用车内饰塑料件大量缺少ISO 11469标识，部分零部件无任何材料标记",
+        "gap": "商用车内饰零部件标准低于乘用车，材料标识意识更弱。中国供应商可能仅按国标GB/T 16288标记（格式与ISO 11469不同），或完全未标记",
+        "recommendation": "(a) 排查所有>100g塑料零部件的标记情况；(b) 商用车货厢内衬、仪表板、门板等大面积塑料件需重点关注；(c) 更新模具或加贴标签使标记符合ISO 11469",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "ELV-B04",
+        "item": "车辆回收网络",
+        "item_en": "Vehicle Take-Back Network",
+        "regulation": "ELV Dir. Art.5 + EU 2023/0284",
+        "requirement": "OEM须建立或加入报废车辆回收网络",
+        "actual": "EU市场无任何报废车辆回收安排",
+        "gap": "作为首次进入EU的中国商用车品牌，完全未考虑报废阶段的回收义务。EU要求制造商免费回收报废车辆（最后持有人无需付费）",
+        "recommendation": "(a) 与EU报废车辆处理企业建立合作协议；(b) 加入各成员国报废车辆回收体系；(c) 特别注意680kg大型LFP电池包的回收物流和安全要求",
+        "priority": "HIGH",
+        "blocking": true
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "ELV-C01",
+        "item": "新ELV提案再生材料含量目标",
+        "item_en": "New ELV Proposal Recycled Content Targets",
+        "regulation": "EU 2023/0284(COD) Art.6",
+        "evidence_needed": "整车再生塑料和再生钢/铝使用比例数据",
+        "current_status": "新ELV提案要求再生塑料≥25%、再生钢≥20%、再生铝≥10%。远程SuperVAN E尚未统计再生材料使用数据",
+        "gap_note": "中国商用车供应链对再生材料溯源完全不熟悉。商用车用材量大，再生材料需求量也大",
+        "how_to_obtain": "向材料供应商收集再生材料比例数据。评估中国供应商是否能提供EU认可的再生材料溯源证明",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "ELV-C02",
+        "item": "LFP电池回收率证明",
+        "item_en": "LFP Battery Recycling Rate Certification",
+        "regulation": "EU 2023/1542 Art.71 (Battery Regulation) + ELV Dir.",
+        "evidence_needed": "100kWh LFP电池包回收工艺及预期回收率文件",
+        "current_status": "EU端LFP电池回收合作伙伴和回收工艺方案未确认",
+        "gap_note": "LFP回收经济性低于NCM（无钴/镍高价金属），EU LFP回收产业链不如NCM成熟。680kg大型电池包需专用物流和处理设备。Battery Regulation要求锂回收率2027年≥50%",
+        "how_to_obtain": "与EU电池回收企业（如Umicore、Li-Cycle等）建立LFP回收合作协议。评估EU LFP回收能力和经济性",
+        "priority": "HIGH"
+      },
+      {
+        "id": "ELV-C03",
+        "item": "生产者延伸责任（EPR）注册",
+        "item_en": "Extended Producer Responsibility (EPR) Registration",
+        "regulation": "EU 2023/0284(COD) Art.19-22",
+        "evidence_needed": "EU目标市场国家的EPR注册或EPR组织加入确认",
+        "current_status": "首次进入EU市场，尚未在任何成员国注册EPR",
+        "gap_note": "商用车EPR费用可能高于乘用车（因车辆质量大、电池重）。各成员国EPR要求不同，需逐国注册",
+        "how_to_obtain": "确认首批目标市场国家，联系当地EPR组织完成注册。预算商用车EPR费用（可能显著高于乘用车）",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-A01 可回收率不达标",
+      "to_domain": "Battery",
+      "to_item": "BAT-C01 回收材料含量",
+      "issue": "680kg LFP电池包是可回收率不达标的主因。提升电池回收率是解决ELV可回收率问题的关键"
+    },
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-B01 铅焊料豁免",
+      "to_domain": "REACH",
+      "to_item": "REACH-C02 线束DEHP筛查",
+      "issue": "含铅焊料在ELV下可通过Annex II豁免，但在REACH下仍需履行SVHC申报义务。两个法规义务需协调管理"
+    },
+    {
+      "from_domain": "ELV",
+      "from_item": "ELV-B02 拆解手册缺失",
+      "to_domain": "IDIS",
+      "to_item": "IDIS平台注册",
+      "issue": "拆解手册是IDIS平台数据的核心来源。拆解手册完全缺失将直接导致IDIS注册无法完成"
+    }
+  ]
+}

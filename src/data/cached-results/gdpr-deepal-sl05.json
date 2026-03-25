@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "vehicle": "Deepal SL05",
+    "vehicle_cn": "深蓝SL05",
+    "domain": "GDPR",
+    "domain_cn": "车联网数据合规",
+    "regulation": "EU 2016/679",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "GDPR + EDPB Guidelines 01/2020"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 3,
+    "fail": 3,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "GDPR-D01",
+        "item": "EU数据中心部署",
+        "item_en": "EU Data Center Deployment",
+        "regulation": "GDPR Art.44",
+        "requirement": "向无充分性认定的第三国传输个人数据必须有合法传输机制",
+        "actual": "车联网数据存储于德国法兰克福阿里云欧洲节点，EU境内存储",
+        "basis": "深蓝SL05车联网数据主存储在EU境内（德国法兰克福），避免了EU→中国跨境传输的根本性问题。相比星海X7（全部数据存中国深圳），合规性大幅提升"
+      },
+      {
+        "id": "GDPR-D02",
+        "item": "分析数据SCCs签署",
+        "item_en": "Analytics Data SCCs Signed",
+        "regulation": "GDPR Art.46(2)(c)",
+        "requirement": "向第三国传输数据需签署标准合同条款（SCCs）",
+        "actual": "已签署EU SCCs（2021/914版），覆盖传回中国的分析数据",
+        "basis": "深蓝已为需要传回中国总部的聚合分析数据签署SCCs，建立了合法传输机制。仍需完成TIA（传输影响评估）"
+      },
+      {
+        "id": "GDPR-E02",
+        "item": "EU DPO已任命",
+        "item_en": "EU DPO Appointed",
+        "regulation": "GDPR Art.37",
+        "requirement": "大规模处理EU数据主体个人数据的组织须任命DPO",
+        "actual": "已任命EU DPO（具有汽车行业GDPR经验）",
+        "basis": "深蓝已任命EU DPO，优于星海X7（未任命DPO和EU代表）。但EU代表（Art.27）仍未任命"
+      }
+    ],
+    "fail": [
+      {
+        "id": "GDPR-A02",
+        "item": "同意与购车合同捆绑",
+        "item_en": "Consent Bundled with Purchase Contract",
+        "regulation": "EDPB Guidelines 01/2020 §56-58",
+        "requirement": "数据处理同意必须与购车合同分别获取，不得捆绑",
+        "actual": "购车合同附件中包含数据处理同意（捆绑同意）",
+        "gap": "构成'捆绑同意'（bundled consent），不满足GDPR'自由同意'要求。拒绝=无法购车。与星海X7相同问题，行业普遍",
+        "recommendation": "(a) 将数据同意从购车合同拆分为独立文件；(b) 按处理目的分别获取同意；(c) 确保拒绝同意不影响基本驾驶功能；(d) 在车载屏幕实现同意管理界面",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-A03",
+        "item": "分目的独立同意",
+        "item_en": "Purpose-Specific Granular Consent",
+        "regulation": "GDPR Art.6-7 + EDPB Guidelines",
+        "requirement": "每个处理目的必须单独获取同意",
+        "actual": "单一概括性同意覆盖所有数据处理（远程诊断、驾驶行为、位置、语音）",
+        "gap": "未按处理目的分别获取同意。虽然DMS数据不上传（降低了部分风险），但诊断/行为/位置/语音仍需独立同意",
+        "recommendation": "(a) 拆分为4-5个独立同意项（远程诊断、驾驶行为分析、位置服务、语音助手、充电管理）；(b) 设计首次启动引导流程；(c) 提供随时撤回同意的车载界面",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "GDPR-E03",
+        "item": "EU代表未任命",
+        "item_en": "EU Representative Not Appointed",
+        "regulation": "GDPR Art.27",
+        "requirement": "非EU企业在EU大规模处理个人数据须任命EU代表",
+        "actual": "已任命DPO但未任命GDPR Art.27规定的EU代表",
+        "gap": "DPO和EU代表是两个不同的法律角色。深蓝已任命DPO（进步），但EU代表仍缺失。Art.27代表需在EU成员国有实体存在",
+        "recommendation": "(a) 任命EU境内代表（可委托专业服务商如DataRep、EDPO等）；(b) 在车辆隐私政策中公布代表联系方式；(c) 代表需在DPO所在成员国或主要销售市场国设立",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "GDPR-E01",
+        "item": "DPIA数据保护影响评估",
+        "item_en": "Data Protection Impact Assessment",
+        "regulation": "GDPR Art.35",
+        "evidence_needed": "已完成的DPIA报告",
+        "current_status": "未提及是否进行过DPIA",
+        "gap_note": "大规模GPS追踪+DMS摄像头部署=DPIA强制触发条件。虽DMS数据不上传降低了风险，但位置数据和驾驶行为数据仍需DPIA",
+        "how_to_obtain": "委托EU DPO进行DPIA，覆盖所有车联网数据处理活动。DPO已任命可加速此流程",
+        "priority": "HIGH"
+      },
+      {
+        "id": "GDPR-D03",
+        "item": "TIA传输影响评估",
+        "item_en": "Transfer Impact Assessment",
+        "regulation": "GDPR Art.46 + Schrems II",
+        "evidence_needed": "SCCs配套的传输影响评估（TIA）报告",
+        "current_status": "SCCs已签署，但TIA尚未完成",
+        "gap_note": "Schrems II判决后，仅签署SCCs不足够，需配套完成TIA评估中国法律环境对数据保护的影响。需评估中国《数据安全法》《个人信息保护法》与EU数据保护的兼容性",
+        "how_to_obtain": "委托EU隐私律师完成TIA，评估传输至中国的分析数据的风险和补充保护措施",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-A02 捆绑同意",
+      "to_domain": "GSR",
+      "to_item": "GSR-A27 ADDW数据限制",
+      "issue": "DMS数据虽不上传（GSR合规），但其他数据处理的同意机制仍需满足GDPR要求。两个法规在数据处理同意问题上需协调"
+    },
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-D02 SCCs",
+      "to_domain": "GSR",
+      "to_item": "GSR-D01 CSMS认证",
+      "issue": "CSMS中的数据保护要求需与GDPR跨境传输机制协调，两者应同步推进"
+    },
+    {
+      "from_domain": "GDPR",
+      "from_item": "GDPR-E01 DPIA",
+      "to_domain": "GSR",
+      "to_item": "R155 TARA",
+      "issue": "DPIA可与R155的TARA（威胁分析和风险评估）合并进行，减少重复工作"
+    }
+  ]
+}

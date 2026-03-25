@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "vehicle": "StarSea X7",
+    "vehicle_cn": "星海X7",
+    "domain": "REACH",
+    "domain_cn": "化学品合规",
+    "regulation": "EU 1907/2006 (REACH)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 2,
+    "fail": 3,
+    "needs_evidence": 3
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "REACH-A01",
+        "item": "Annex XVII限制物质（大宗材料）",
+        "item_en": "Annex XVII Restricted Substances (Bulk Materials)",
+        "regulation": "REACH Art.67 + Annex XVII",
+        "requirement": "物品中不得含有超过Annex XVII限制浓度的受限物质",
+        "actual": "车身钢材、铝合金、塑料大宗材料未含Annex XVII受限物质",
+        "basis": "大宗结构材料（车身钢/铝、保险杠PP、内饰ABS等）通常不含Annex XVII受限物质。常规材料供应商声明合规"
+      },
+      {
+        "id": "REACH-A02",
+        "item": "石棉禁令合规",
+        "item_en": "Asbestos Ban Compliance",
+        "regulation": "REACH Annex XVII Entry 6",
+        "requirement": "禁止在任何物品中使用石棉纤维",
+        "actual": "制动片、离合器片、密封件均未使用石棉材料",
+        "basis": "中国车企自2000年代起已普遍淘汰石棉。星海X7使用半金属/陶瓷制动片，无石棉风险"
+      }
+    ],
+    "fail": [
+      {
+        "id": "REACH-B01",
+        "item": "IMDS材料数据报告",
+        "item_en": "IMDS Material Data Reporting",
+        "regulation": "REACH Art.33 + GADSL (行业标准)",
+        "requirement": "整车及零部件材料数据需在IMDS（国际材料数据系统）中完整报告",
+        "actual": "未在IMDS中提交任何材料数据表",
+        "gap": "中国供应链对IMDS系统不熟悉。国内供应商习惯使用CAMDS（中国汽车材料数据系统），无法直接迁移至IMDS",
+        "recommendation": "(a) 对Tier1/Tier2供应商进行IMDS培训；(b) 聘请IMDS咨询公司协助数据迁移；(c) 从关键零部件（电池、线束、内饰）开始分批录入；(d) 目标：EU型式认证前完成全车IMDS报告",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "REACH-B02",
+        "item": "SCIP数据库通报",
+        "item_en": "SCIP Database Notification",
+        "regulation": "REACH Art.9(1)(i) + WFD Art.9(1)(i)",
+        "requirement": "含SVHC>0.1% w/w的物品必须向ECHA SCIP数据库通报",
+        "actual": "未向SCIP数据库提交任何通报",
+        "gap": "SCIP通报是EU强制义务，自2021年1月5日起生效。未通报即违规。星海X7作为含多种SVHC的复杂物品，需逐零部件通报",
+        "recommendation": "(a) 完成全车SVHC筛查后，识别所有含SVHC>0.1%的零部件；(b) 在ECHA SCIP门户批量提交通报；(c) 建立持续更新机制（SVHC候选清单每年更新两次）",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "REACH-B03",
+        "item": "供应链SVHC沟通义务",
+        "item_en": "Supply Chain SVHC Communication",
+        "regulation": "REACH Art.33(1)",
+        "requirement": "进口商须向下游用户和消费者传递SVHC信息（45天内免费响应）",
+        "actual": "无SVHC信息沟通流程，EU经销商无法回复消费者SVHC查询",
+        "gap": "REACH Art.33要求：消费者查询SVHC信息时，45天内免费提供。星海EU渠道完全没有准备此流程",
+        "recommendation": "(a) 建立EU端SVHC信息查询响应流程；(b) 编制标准化SVHC声明文件；(c) 培训EU经销商人员响应消费者查询",
+        "priority": "HIGH",
+        "blocking": true
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "REACH-C01",
+        "item": "电池钴化合物SVHC筛查",
+        "item_en": "Battery Cobalt Compound SVHC Screening",
+        "regulation": "REACH Art.33 + SVHC Candidate List",
+        "evidence_needed": "NCM811正极材料中钴化合物的SVHC筛查报告（硫酸钴、氯化钴等已列入SVHC候选清单）",
+        "current_status": "宁德工厂NCM811电池使用钴作为正极关键材料，但未提供EU标准的SVHC筛查",
+        "gap_note": "硫酸钴(CAS 10124-43-3)、氯化钴(CAS 7646-79-9)等钴化合物已列入SVHC候选清单。NCM811正极钴含量约10%，需确认最终产品中钴化合物形态和浓度是否超过0.1% w/w阈值",
+        "how_to_obtain": "要求宁德电池工厂提供正极材料化学组成详细报告，由第三方实验室（如SGS、Bureau Veritas）进行SVHC筛查测试",
+        "priority": "HIGH"
+      },
+      {
+        "id": "REACH-C02",
+        "item": "线束DEHP筛查",
+        "item_en": "Wiring Harness DEHP Screening",
+        "regulation": "REACH Annex XIV (Authorization) + Annex XVII Entry 51",
+        "evidence_needed": "线束PVC绝缘层中DEHP（邻苯二甲酸二(2-乙基己基)酯）含量检测报告",
+        "current_status": "线束供应商未提供DEHP含量声明",
+        "gap_note": "DEHP(CAS 117-81-7)是SVHC且已纳入Annex XIV授权清单。中国线束供应商PVC配方中可能使用DEHP作为增塑剂。EU Annex XVII Entry 51限制DEHP在多种物品中的浓度",
+        "how_to_obtain": "要求线束供应商提供PVC配方中增塑剂类型声明，或送检线束样品进行邻苯二甲酸酯四项（DEHP/BBP/DBP/DIBP）检测",
+        "priority": "HIGH"
+      },
+      {
+        "id": "REACH-C03",
+        "item": "焊料含铅SVHC评估",
+        "item_en": "Solder Lead Content SVHC Assessment",
+        "regulation": "REACH Art.33 + ELV Annex II",
+        "evidence_needed": "电子零部件焊料中铅含量声明及豁免条款适用性评估",
+        "current_status": "PCB焊料类型未确认，中国电子供应商可能仍使用含铅焊料",
+        "gap_note": "铅(CAS 7439-92-1)是SVHC。电子零部件焊料中含铅可依据ELV Annex II豁免，但需正式声明和文档支撑。需同时评估REACH和ELV两个法规框架下的义务",
+        "how_to_obtain": "收集所有电子ECU、传感器供应商的焊料声明（含铅/无铅），对含铅情况编制ELV Annex II豁免声明",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "REACH",
+      "from_item": "REACH-C01 电池钴化合物",
+      "to_domain": "ELV",
+      "to_item": "电池有害物质回收处理",
+      "issue": "电池中钴化合物同时受REACH SVHC申报义务和ELV/Battery Regulation回收处理要求约束"
+    },
+    {
+      "from_domain": "REACH",
+      "from_item": "REACH-C03 焊料含铅",
+      "to_domain": "ELV",
+      "to_item": "ELV Annex II铅豁免",
+      "issue": "电子焊料含铅在REACH下需SVHC申报，在ELV下可依据Annex II获得豁免。两个法规的义务不同但材料相同，需协调管理"
+    },
+    {
+      "from_domain": "REACH",
+      "from_item": "REACH-B01 IMDS报告",
+      "to_domain": "ELV",
+      "to_item": "可回收率计算材料数据",
+      "issue": "IMDS材料数据是ELV可回收率计算（ISO 22628）的基础数据来源。IMDS缺失将同时影响REACH合规和ELV可回收率计算"
+    }
+  ]
+}

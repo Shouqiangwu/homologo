@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "vehicle": "StarSea X7",
+    "vehicle_cn": "星海X7",
+    "domain": "Battery",
+    "domain_cn": "电池法规",
+    "regulation": "EU 2023/1542",
+    "generated_at": "2026-03-24",
+    "model": "claude-sonnet-4-20250514",
+    "analysis_version": "2023/1542 full text"
+  },
+  "summary": {
+    "total": 8,
+    "pass": 1,
+    "fail": 5,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "BAT-G01",
+        "item": "电池分类正确",
+        "item_en": "Battery Classification",
+        "regulation": "EU 2023/1542 Art.1",
+        "requirement": "正确识别电池类别以适用对应法规要求",
+        "actual": "EV电池（为M1类车辆牵引供电，>25kg，82.5kWh NCM811）",
+        "basis": "明确属于EV电池类别，适用最严格的法规要求层级"
+      }
+    ],
+    "fail": [
+      {
+        "id": "BAT-A01",
+        "item": "碳足迹声明",
+        "item_en": "Carbon Footprint Declaration",
+        "regulation": "Art.7(1)",
+        "requirement": "EV电池自2025-02-18起必须有碳足迹声明，使用EU委托法规规定的方法学",
+        "actual": "按GB/T 24067方法计算，98 kg CO₂e/kWh，不含海运运输，未经第三方验证",
+        "gap": "三重不合规：(a) 使用中国标准而非EU PEF方法学；(b) 范围不完整（缺少运输阶段）；(c) 未经notified body第三方验证",
+        "recommendation": "(a) 按EU委托法规方法学重新计算全生命周期碳足迹；(b) 补充海运运输阶段碳排放；(c) 委托EU认可notified body验证；(d) 注意宁德工厂中国电网碳强度（~580g CO₂/kWh）远高于EU",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-E01",
+        "item": "CE标志",
+        "item_en": "CE Marking",
+        "regulation": "Art.17-18",
+        "requirement": "2024-08-18起所有电池投放EU市场前必须标贴CE标志",
+        "actual": "无CE标志",
+        "gap": "CE标志完全缺失，最基本的市场准入要求",
+        "recommendation": "(a) 完成EU 2023/1542 Annex VIII符合性评估；(b) 编制技术文档；(c) 出具EU符合性声明；(d) 标贴CE标志",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-E02",
+        "item": "标签完善（分类收集标志+QR码）",
+        "item_en": "Labeling (Collection Symbol + QR Code)",
+        "regulation": "Art.13",
+        "requirement": "电池必须标注分类收集标志和QR码链接电池护照",
+        "actual": "无分类收集标志，无QR码",
+        "gap": "标签不完整，缺少强制性分类收集标志和QR码",
+        "recommendation": "(a) 添加分类收集标志（crossed-out wheeled bin）；(b) 电池护照系统建成后添加QR码；(c) 确保标签耐久性满足电池寿命要求",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-F02",
+        "item": "BMS SoH只读接口",
+        "item_en": "BMS SoH Read-Only Access",
+        "regulation": "Art.14",
+        "requirement": "BMS必须向电池所有者和第三方提供SoH相关数据只读访问",
+        "actual": "SoH算法为专有技术，不对外公开，无第三方只读接口",
+        "gap": "BMS数据完全封闭，违反数据开放要求。独立维修商有权访问维修相关数据",
+        "recommendation": "(a) 开发标准化BMS只读接口（建议ISO 15118或OBD-II扩展）；(b) 定义开放数据集（SoC/SoH/剩余容量/循环次数）；(c) SoH算法可保持专有，但输出结果必须可读",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "BAT-C01",
+        "item": "回收材料含量",
+        "item_en": "Recycled Content",
+        "regulation": "Art.8",
+        "requirement": "2028-08起信息披露，2031-08起强制最低回收材料比例（钴12%/锂4%/镍4%/铅85%）",
+        "actual": "钴8%（制造废料），锂0%，镍0%，铅N/A",
+        "gap": "当前回收含量远低于2031年目标。钴8%<12%，锂和镍均为0%",
+        "recommendation": "(a) 现在开始收集回收材料含量数据用于2028年信息披露；(b) 建立回收材料供应渠道；(c) 与电芯供应商协商提高回收料比例",
+        "priority": "LOW",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "BAT-D02",
+        "item": "供应链风险评估",
+        "item_en": "Supply Chain Risk Assessment",
+        "regulation": "Art.49",
+        "evidence_needed": "钴、石墨、锂、镍供应链人权和环保风险评估报告",
+        "current_status": "钴来自刚果（金）和菲律宾，有内部供应商评估但未按OECD指南执行",
+        "gap_note": "2027-08-18强制。刚果（金）钴矿为高风险来源，需提前启动OECD尽职调查",
+        "how_to_obtain": "向华能新能源供应链管理部门索要评估记录。如无文档，需委托第三方审计（如RMI）",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "BAT-B01",
+        "item": "电池护照系统",
+        "item_en": "Battery Passport System",
+        "regulation": "Art.77",
+        "evidence_needed": "电池护照平台接入方案、数据元素定义、QR码生成方案",
+        "current_status": "未提及电池护照相关准备",
+        "gap_note": "2027-02强制。需12-18个月准备，包括数据系统建设和平台对接",
+        "how_to_obtain": "关注EU电池护照平台进展（Battery Pass Consortium），准备数据接口和内容",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-A01 碳足迹运输排放",
+      "to_domain": "CO2",
+      "to_item": "供应链碳排放",
+      "issue": "碳足迹计算需包含从中国到EU的海运运输排放，影响碳足迹等级评定"
+    },
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-D02 供应链钴溯源",
+      "to_domain": "REACH",
+      "to_item": "SVHC申报",
+      "issue": "电池原材料中可能含有REACH候选清单物质，需交叉检查"
+    },
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-F02 BMS数据开放",
+      "to_domain": "GDPR",
+      "to_item": "数据保护评估",
+      "issue": "BMS数据开放接口设计需考虑GDPR数据保护要求，特别是与个人数据（车辆使用模式）的关联"
+    }
+  ]
+}

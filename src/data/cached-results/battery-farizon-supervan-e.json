@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "vehicle": "Farizon SuperVAN E",
+    "vehicle_cn": "远程SuperVAN E",
+    "domain": "Battery",
+    "domain_cn": "电池法规",
+    "regulation": "EU 2023/1542",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2023/1542 full text"
+  },
+  "summary": {
+    "total": 10,
+    "pass": 1,
+    "fail": 7,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "BAT-G01",
+        "item": "电池分类正确",
+        "item_en": "Battery Classification",
+        "regulation": "EU 2023/1542 Art.1",
+        "requirement": "正确识别电池类别以适用对应法规要求",
+        "actual": "EV电池（为N1类车辆牵引供电，>25kg，100kWh LFP，680kg）",
+        "basis": "明确属于EV电池类别，适用最严格的法规要求层级。100kWh大容量LFP电池组，重量680kg"
+      }
+    ],
+    "fail": [
+      {
+        "id": "BAT-A01",
+        "item": "碳足迹声明",
+        "item_en": "Carbon Footprint Declaration",
+        "regulation": "Art.7(1)",
+        "requirement": "EV电池自2025-02-18起必须有碳足迹声明，使用EU委托法规规定的方法学",
+        "actual": "按GB/T 24067方法计算，105 kg CO₂e/kWh，不含海运运输，未经第三方验证",
+        "gap": "四重不合规：(a) 使用中国GB/T 24067标准而非EU PEF方法学；(b) 范围不完整（缺少运输阶段）；(c) 未经notified body第三方验证；(d) 105 kg CO₂e/kWh远高于行业平均水平（LFP通常60-80 kg CO₂e/kWh），反映浙江工厂能源结构碳强度高",
+        "recommendation": "(a) 按EU委托法规方法学重新计算全生命周期碳足迹；(b) 补充中国→EU海运运输阶段碳排放（约2,000 kg CO₂e/集装箱）；(c) 委托EU认可notified body验证；(d) 评估浙江工厂可再生能源采购以降低碳足迹",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-A02",
+        "item": "碳足迹等级标签",
+        "item_en": "Carbon Footprint Performance Class Label",
+        "regulation": "Art.7(2)",
+        "requirement": "EV电池自2026-08-18起须标注碳足迹性能等级标签",
+        "actual": "无碳足迹等级标签，碳足迹计算本身即不合规",
+        "gap": "105 kg CO₂e/kWh的高碳足迹值可能导致等级标签处于最差等级，甚至可能超出2028-02-18起实施的碳足迹最大阈值",
+        "recommendation": "(a) 先完成EU PEF方法学碳足迹计算；(b) 根据计算结果确定等级标签；(c) 提前评估2028年碳足迹阈值风险",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-E01",
+        "item": "CE标志",
+        "item_en": "CE Marking",
+        "regulation": "Art.17-18",
+        "requirement": "2024-08-18起所有电池投放EU市场前必须标贴CE标志",
+        "actual": "无CE标志",
+        "gap": "CE标志完全缺失。远程商用车对EU CE标志体系不熟悉，未启动任何符合性评估流程",
+        "recommendation": "(a) 完成EU 2023/1542 Annex VIII符合性评估；(b) 编制技术文档；(c) 出具EU符合性声明；(d) 标贴CE标志。建议委托EU notified body协助全流程",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-E02",
+        "item": "标签全面缺失",
+        "item_en": "Labeling Comprehensive Failure",
+        "regulation": "Art.13",
+        "requirement": "电池必须标注分类收集标志、QR码链接电池护照、能量标签",
+        "actual": "仅有容量和电压标签，无能量标签、无分类收集标志、无QR码",
+        "gap": "标签严重不完整。缺少三项强制标签：(a) 能量标签（kWh）；(b) 分类收集标志（crossed-out wheeled bin）；(c) QR码。现有标签可能也不符合EU语言和格式要求",
+        "recommendation": "(a) 设计完整的EU合规电池标签系统；(b) 添加所有缺失的强制标签；(c) 确保标签耐久性满足电池寿命要求；(d) 标签内容须包含EU要求的语言版本",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-F02",
+        "item": "BMS SoH只读接口",
+        "item_en": "BMS SoH Read-Only Access",
+        "regulation": "Art.14",
+        "requirement": "BMS必须向电池所有者和第三方提供SoH相关数据只读访问",
+        "actual": "SoH算法为专有技术，仅CAN接口，不对外公开，无第三方只读接口",
+        "gap": "BMS数据完全封闭。CAN接口仅供内部通信，独立维修商和车队管理方无法获取SoH数据。商用车队运营商需要电池健康信息用于运营规划",
+        "recommendation": "(a) 开发标准化BMS只读接口（建议ISO 15118或OBD-II扩展）；(b) 定义开放数据集（SoC/SoH/剩余容量/循环次数/温度历史）；(c) 商用车队管理场景尤其需要远程SoH读取能力",
+        "priority": "MEDIUM",
+        "blocking": false
+      },
+      {
+        "id": "BAT-D01",
+        "item": "供应链尽职调查",
+        "item_en": "Supply Chain Due Diligence",
+        "regulation": "Art.49",
+        "requirement": "EV电池经济运营者须按OECD指南对原材料供应链执行尽职调查",
+        "actual": "未按OECD指南执行尽职调查，仅一级供应商可见，锂来自江西和澳大利亚但无溯源证明",
+        "gap": "供应链可见度极低，仅知一级供应商。中国供应商对OECD尽职调查框架不熟悉。LFP虽无钴/镍，但锂和石墨仍需溯源",
+        "recommendation": "(a) 建立OECD尽职调查管理体系；(b) 对锂和石墨供应链进行风险评估；(c) 委托第三方审计机构（如RMI/RCI）进行现场审核；(d) 提升供应链可见度至二级和三级供应商",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "BAT-C01",
+        "item": "回收材料含量",
+        "item_en": "Recycled Content",
+        "regulation": "Art.8",
+        "requirement": "2028-08起信息披露，2031-08起强制最低回收材料比例（锂4%等）",
+        "actual": "锂回收含量0%。LFP电池无钴/镍，但锂回收含量为零",
+        "gap": "锂回收含量为0%，距2031年4%目标差距明显。中国LFP回收产业链虽较成熟但回收锂主要回流中国市场",
+        "recommendation": "(a) 现在开始收集回收材料含量数据用于2028年信息披露；(b) 建立EU端锂回收材料供应渠道；(c) 与电芯供应商协商提高回收锂比例",
+        "priority": "LOW",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "BAT-B01",
+        "item": "电池护照系统",
+        "item_en": "Battery Passport System",
+        "regulation": "Art.77",
+        "evidence_needed": "电池护照平台接入方案、数据元素定义、QR码生成方案",
+        "current_status": "完全未准备电池护照相关工作，不了解EU电池护照体系",
+        "gap_note": "2027-02强制。需12-18个月准备。远程商用车对Battery Pass Consortium和Catena-X等EU平台完全不了解，准备周期可能更长",
+        "how_to_obtain": "立即启动电池护照准备工作，联系Battery Pass Consortium了解接入要求。委托EU本地合规顾问协助",
+        "priority": "HIGH"
+      },
+      {
+        "id": "BAT-D02",
+        "item": "锂和石墨供应链风险评估",
+        "item_en": "Lithium and Graphite Supply Chain Risk Assessment",
+        "regulation": "Art.49",
+        "evidence_needed": "锂（江西/澳大利亚）和石墨供应链人权和环保风险评估报告",
+        "current_status": "LFP电池锂来自江西和澳大利亚，石墨来源未披露。无任何OECD标准评估报告",
+        "gap_note": "2027-08-18强制。江西锂矿涉及环保争议，石墨产地可能为黑龙江/内蒙古（石墨矿环境问题突出）。需提前启动OECD尽职调查",
+        "how_to_obtain": "向浙江锂宸新能源科技索要完整供应链信息，委托RMI/RCI等第三方进行尽职调查审计",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-A01 碳足迹高碳强度",
+      "to_domain": "CO2",
+      "to_item": "供应链碳排放",
+      "issue": "105 kg CO₂e/kWh的高碳足迹值反映浙江工厂煤电比例高。碳足迹计算需包含中国→EU海运运输排放。高碳足迹可能影响EU市场商业竞争力"
+    },
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-D01 供应链尽职调查",
+      "to_domain": "REACH",
+      "to_item": "SVHC申报",
+      "issue": "LFP电池虽无钴，但电解液LiPF6和石墨材料仍可能含有REACH候选清单物质，需交叉检查"
+    },
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-F02 BMS数据封闭",
+      "to_domain": "GDPR",
+      "to_item": "车队数据保护评估",
+      "issue": "BMS数据开放接口设计需考虑GDPR数据保护要求。商用车队运营商获取SoH数据时可能涉及个人数据（驾驶员使用模式）"
+    },
+    {
+      "from_domain": "Battery",
+      "from_item": "BAT-E02 标签缺失",
+      "to_domain": "ELV",
+      "to_item": "报废处理标识",
+      "issue": "电池分类收集标志缺失同时违反Battery Regulation和ELV指令中的废弃电池处理标识要求"
+    }
+  ]
+}

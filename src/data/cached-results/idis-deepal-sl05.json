@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "vehicle": "Deepal SL05",
+    "vehicle_cn": "深蓝SL05",
+    "domain": "IDIS",
+    "domain_cn": "国际拆解信息系统",
+    "regulation": "IDIS + ELV Directive 2000/53/EC Art.8",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 6,
+    "pass": 1,
+    "fail": 3,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "IDIS-B02",
+        "item": "ISO 22628可回收率计算文件",
+        "item_en": "ISO 22628 Recyclability Calculation Document",
+        "regulation": "EU 2005/64/EC + ISO 22628",
+        "requirement": "OEM须提供按ISO 22628方法学计算的可回收率/可利用率文件",
+        "actual": "已编制ISO 22628标准的可回收率计算文件，可回收率91%/可利用率97%",
+        "basis": "深蓝SL05基于IMDS数据（已完成）按ISO 22628方法学进行了正式计算。文件包含材料分类明细、各类材料质量占比、回收途径说明。优于星海X7（无正式计算文件）"
+      }
+    ],
+    "fail": [
+      {
+        "id": "IDIS-B01",
+        "item": "IDIS平台注册",
+        "item_en": "IDIS Platform Registration",
+        "regulation": "ELV Dir. Art.8(3) + IDIS Terms",
+        "requirement": "OEM须在IDIS平台（www.idis2.com）注册并提交车型拆解信息",
+        "actual": "长安深蓝品牌未在IDIS平台注册",
+        "gap": "虽拆解信息和ISO 22628计算已有准备，但品牌级IDIS平台注册未完成。注册需OEM主体申请，非单车型操作",
+        "recommendation": "(a) 联系IDIS管理方申请OEM注册（以长安深蓝或长安汽车名义）；(b) 注册费用纳入EU市场准入预算；(c) 注册完成后6个月内提交深蓝SL05车型数据",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "IDIS-B03",
+        "item": "拆解信息IDIS格式转换",
+        "item_en": "Dismantling Information IDIS Format Conversion",
+        "regulation": "ELV Dir. Art.8(3)",
+        "requirement": "拆解信息须按IDIS平台数据格式提交",
+        "actual": "拆解手册有中英文版本，但未按IDIS平台数据格式编制",
+        "gap": "深蓝SL05已有双语拆解手册（优于星海X7仅中文），但IDIS平台有特定的数据结构和字段要求，需将现有内容转换为IDIS格式",
+        "recommendation": "(a) 获取IDIS平台数据提交模板；(b) 将现有拆解手册内容映射至IDIS字段；(c) 优先转换BEV高压安全和有害物质位置信息",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "IDIS-B04",
+        "item": "LFP电池拆解特殊信息",
+        "item_en": "LFP Battery Dismantling Special Information",
+        "regulation": "ELV Dir. Art.8 + EU 2023/1542 Art.74",
+        "requirement": "电池包拆解安全操作指导须包含化学体系特定信息",
+        "actual": "通用BEV电池拆解信息已有，但缺少LFP化学体系特定的安全信息",
+        "gap": "LFP电池热失控特性与NCM不同（LFP热稳定性更高但热失控一旦发生产生大量HF气体），拆解信息需包含LFP特定的安全说明。现有拆解信息未区分化学体系",
+        "recommendation": "(a) 补充LFP电池热失控特征和应急措施；(b) 说明LFP与NCM在拆解操作中的差异；(c) 包含LiPF6电解液泄漏应急处理流程",
+        "priority": "MEDIUM",
+        "blocking": false
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "IDIS-C02",
+        "item": "有害物质位置清单",
+        "item_en": "Hazardous Substance Location List",
+        "regulation": "ELV Dir. Art.8(3) + Annex II",
+        "evidence_needed": "整车有害物质位置标识图（线束DEHP位置、含铅焊料ECU位置、电池电解液等）",
+        "current_status": "IMDS数据已有，但未转化为可视化有害物质位置图",
+        "gap_note": "深蓝SL05已知有害物质包括：(a) 线束PVC中DEHP；(b) ECU焊料中铅（有ELV豁免）；(c) LFP电池电解液LiPF6。需将这些信息标注在整车布置图上",
+        "how_to_obtain": "基于IMDS数据和REACH SVHC筛查结果，编制有害物质位置标识图",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "IDIS-C03",
+        "item": "零部件可再利用评估",
+        "item_en": "Component Reusability Assessment",
+        "regulation": "EU 2023/0284(COD) Art.7 (新ELV提案)",
+        "evidence_needed": "高价值零部件可再利用性评估（电驱系统、LFP电池模组、ADAS传感器等）",
+        "current_status": "未进行零部件级可再利用性评估",
+        "gap_note": "LFP电池模组因循环寿命长，梯次利用（second life）潜力优于NCM。需评估电池模组、电驱总成、域控制器等关键零部件的再利用可能性",
+        "how_to_obtain": "对高价值零部件进行可再利用性评估，特别关注LFP电池模组的梯次利用方案",
+        "priority": "LOW"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "IDIS",
+      "from_item": "IDIS-B02 可回收率计算（已通过）",
+      "to_domain": "ELV",
+      "to_item": "ELV-A01 可回收利用率",
+      "issue": "ISO 22628可回收率计算文件已完成，与ELV可回收率91%数据一致，形成正向交叉验证"
+    },
+    {
+      "from_domain": "IDIS",
+      "from_item": "IDIS-B04 LFP电池拆解",
+      "to_domain": "ELV",
+      "to_item": "ELV-B02 拆解手册",
+      "issue": "LFP电池拆解信息是拆解手册的核心章节。IDIS平台数据需与ELV拆解手册内容一致"
+    },
+    {
+      "from_domain": "IDIS",
+      "from_item": "IDIS-C02 有害物质位置",
+      "to_domain": "REACH",
+      "to_item": "REACH-C02 线束DEHP",
+      "issue": "有害物质位置清单需标注线束DEHP位置，数据来源依赖REACH SVHC筛查结果和IMDS材料数据"
+    }
+  ]
+}

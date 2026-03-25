@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "vehicle": "StarSea X7",
+    "vehicle_cn": "星海X7",
+    "domain": "CO2",
+    "domain_cn": "CO2排放",
+    "regulation": "EU 2019/631 (amended by EU 2023/851)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 6,
+    "pass": 2,
+    "fail": 0,
+    "needs_evidence": 4
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "CO2-A01",
+        "item": "尾气CO2排放",
+        "item_en": "Tailpipe CO2 Emissions",
+        "regulation": "EU 2019/631 Art.3(1)(h)",
+        "requirement": "车辆CO2排放值需纳入制造商车队平均计算",
+        "actual": "BEV车辆，尾气CO2排放 = 0 g/km",
+        "basis": "星海X7为纯BEV，无内燃机，无尾气排放。WLTP测试CO2排放计为0g/km"
+      },
+      {
+        "id": "CO2-A02",
+        "item": "ZLEV积分资格",
+        "item_en": "ZLEV Credit Eligibility",
+        "regulation": "EU 2019/631 Art.4a + EU 2023/851",
+        "requirement": "零排放和低排放车辆（<50g/km）可获得ZLEV超级积分",
+        "actual": "BEV，0g/km，完全符合ZLEV定义",
+        "basis": "星海X7作为纯BEV（0g/km），满足ZLEV定义（<50g CO2/km），可在2025-2029年间获得ZLEV激励乘数，降低制造商车队平均CO2"
+      }
+    ],
+    "fail": [],
+    "needs_evidence": [
+      {
+        "id": "CO2-B01",
+        "item": "车队池化协议（Pooling）状态",
+        "item_en": "Fleet Pooling Agreement Status",
+        "regulation": "EU 2019/631 Art.6",
+        "evidence_needed": "已签署的车队池化协议或独立制造商注册确认",
+        "current_status": "星海作为中国新品牌首次进入EU市场，尚不明确是否已与其他制造商建立pooling安排",
+        "gap_note": "中国小品牌注册量少，车队平均CO2虽为0g/km无超标风险，但pooling可将ZLEV积分卖给高排放伙伴获取商业价值。未建立pooling则浪费积分资产",
+        "how_to_obtain": "确认星海是否计划独立申报或与其他OEM（如EU本土品牌）签订pooling协议。提供协议副本或独立注册决策文件",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "CO2-B02",
+        "item": "年度CO2监控注册",
+        "item_en": "Annual CO2 Monitoring Registration with EU Authority",
+        "regulation": "EU 2021/392 Art.4-7",
+        "evidence_needed": "向EEA/欧委会提交的年度CO2监控注册文件",
+        "current_status": "首次进入EU市场，尚未完成年度监控注册流程",
+        "gap_note": "即使CO2=0g/km，制造商仍需按EU 2021/392进行年度监控和报告。未注册将导致行政违规",
+        "how_to_obtain": "联系EU型式认证技术服务机构，启动年度CO2监控注册流程。需提供WLTP测试报告、车辆注册量预测",
+        "priority": "HIGH"
+      },
+      {
+        "id": "CO2-B03",
+        "item": "WLTP型式认证测试报告",
+        "item_en": "WLTP Type Approval Test Report",
+        "regulation": "EU 2017/1151 (WLTP)",
+        "evidence_needed": "EU认可实验室出具的WLTP测试报告（含纯电续航里程、能耗值）",
+        "current_status": "中国测试依据CLTC标准，EU需按WLTP标准重新测试",
+        "gap_note": "CLTC续航里程 ≠ WLTP续航里程。82.5kWh NCM811电池包需在EU认可实验室按WLTP标准进行完整测试循环",
+        "how_to_obtain": "选择EU认可技术服务机构（如TUV、DEKRA），安排WLTP测试。提供电池包规格、能耗数据",
+        "priority": "HIGH"
+      },
+      {
+        "id": "CO2-B04",
+        "item": "电池碳足迹声明",
+        "item_en": "Battery Carbon Footprint Declaration",
+        "regulation": "EU 2023/1542 Art.7 (Battery Regulation)",
+        "evidence_needed": "电池碳足迹声明文件（生命周期碳排放计算）",
+        "current_status": "宁德工厂生产NCM811电池，碳足迹数据尚未按EU标准编制",
+        "gap_note": "电池碳足迹≠车辆CO2排放。Battery Regulation要求单独的电池生命周期碳足迹声明，包括原材料开采、生产、运输全链条。此要求与CO2法规中的车辆尾气排放是不同概念",
+        "how_to_obtain": "要求宁德电池工厂提供LCA数据，按EU 2023/1542 Annex II方法学编制碳足迹声明",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "CO2",
+      "from_item": "CO2-B04 电池碳足迹",
+      "to_domain": "Battery Regulation",
+      "to_item": "电池生命周期碳足迹",
+      "issue": "车辆CO2排放（0g/km尾气）与电池碳足迹（生命周期排放）是两个不同概念。Battery Regulation Art.7要求独立的电池碳足迹声明，不可混淆"
+    },
+    {
+      "from_domain": "CO2",
+      "from_item": "CO2-B03 WLTP测试",
+      "to_domain": "ISC",
+      "to_item": "在用车能耗一致性",
+      "issue": "WLTP型式认证能耗值将作为ISC在用监控的基准。BEV虽无排放ISC，但能耗一致性仍可能被监控"
+    }
+  ]
+}

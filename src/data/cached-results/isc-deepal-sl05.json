@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "vehicle": "Deepal SL05",
+    "vehicle_cn": "深蓝SL05",
+    "domain": "ISC",
+    "domain_cn": "在用车符合性",
+    "regulation": "EU 2018/858 Art.52-54 + EU 2019/2144",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 7,
+    "pass": 2,
+    "fail": 3,
+    "needs_evidence": 2
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "ISC-A01",
+        "item": "排放ISC豁免（BEV）",
+        "item_en": "Emission ISC Exemption (BEV)",
+        "regulation": "EU 2018/1832",
+        "requirement": "在用车排放一致性监控（尾气排放）",
+        "actual": "BEV车辆，无尾气排放，排放ISC不适用",
+        "basis": "深蓝SL05为纯BEV Sedan，无内燃机排放系统。排放ISC的尾气排放一致性测试不适用于BEV"
+      },
+      {
+        "id": "ISC-A02",
+        "item": "蒸发排放ISC豁免（BEV）",
+        "item_en": "Evaporative Emission ISC Exemption (BEV)",
+        "regulation": "EU 2018/1832 Annex",
+        "requirement": "蒸发排放一致性监控",
+        "actual": "BEV车辆，无燃油系统，蒸发排放ISC不适用",
+        "basis": "纯BEV无燃油箱和燃油蒸发排放系统，蒸发排放ISC监控不适用"
+      }
+    ],
+    "fail": [
+      {
+        "id": "ISC-B01",
+        "item": "ADAS在用性能监控计划",
+        "item_en": "ADAS In-Service Performance Monitoring Plan",
+        "regulation": "EU 2019/2144 Art.6 + EU 2018/858 Art.52",
+        "requirement": "安全系统（AEB/ISA/ELKS等）的在用性能退化监控机制",
+        "actual": "无EU市场ADAS在用性能监控计划",
+        "gap": "EU要求OEM建立ADAS系统在用性能监控机制。深蓝SL05虽有OTA月度更新能力，但未建立正式的EU市场ISC监控计划（含数据采集方式、退化阈值、纠正措施流程）",
+        "recommendation": "(a) 建立EU市场ADAS性能监控计划；(b) 利用OTA基础设施实现远程性能诊断；(c) 将监控计划纳入WVTA型式认证文档；(d) 注意数据采集需符合GDPR（深蓝已有EU数据中心，可支撑）",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ISC-B02",
+        "item": "市场监督响应流程",
+        "item_en": "Market Surveillance Response Process",
+        "regulation": "EU 2018/858 Art.53-54",
+        "requirement": "OEM须配合EU市场监督机构的ISC调查和车辆抽检",
+        "actual": "EU市场运营团队未建立市场监督响应流程",
+        "gap": "EU市场监督机构可随时抽检在用车辆。深蓝已任命EU DPO但缺少型式认证领域的EU授权代表和市场监督响应流程",
+        "recommendation": "(a) 指定EU授权代表负责市场监督事务；(b) 建立快速响应流程（含时限承诺）；(c) 准备标准化技术资料包",
+        "priority": "HIGH",
+        "blocking": true
+      },
+      {
+        "id": "ISC-B03",
+        "item": "ISA准确率在用退化监控",
+        "item_en": "ISA Accuracy In-Service Degradation Monitoring",
+        "regulation": "EU 2021/1958 + EU 2018/858 Art.52",
+        "requirement": "ISA系统在用准确率需持续满足法规阈值",
+        "actual": "ISA初始准确率88%已低于90%阈值，无在用退化监控计划",
+        "gap": "ISA初始准确率尚未达标（见GSR领域），在用阶段地图数据过期、摄像头老化等因素可能进一步降低准确率。需特别关注ISA准确率在用监控",
+        "recommendation": "(a) 确保HERE Maps定期更新（OTA推送地图数据）；(b) 建立ISA准确率远程监控指标；(c) 制定准确率低于阈值时的OTA修复策略",
+        "priority": "HIGH",
+        "blocking": true
+      }
+    ],
+    "needs_evidence": [
+      {
+        "id": "ISC-C01",
+        "item": "OTA更新影响评估流程",
+        "item_en": "OTA Update Impact Assessment Process",
+        "regulation": "R156 §7.1 + EU 2019/2144",
+        "evidence_needed": "OTA软件更新的型式认证影响评估流程文件（R156 SUMS要求）",
+        "current_status": "深蓝SL05支持月度OTA升级，但未建立EU合规的更新影响评估流程",
+        "gap_note": "月度OTA频率高于星海X7，每次更新需评估是否影响型式认证参数。频繁OTA意味着更高的评估工作量",
+        "how_to_obtain": "编制OTA更新影响评估SOP，包括：更新分类标准、型式认证影响判断矩阵、审批流程",
+        "priority": "HIGH"
+      },
+      {
+        "id": "ISC-C02",
+        "item": "电池性能在用监控",
+        "item_en": "Battery Performance In-Service Monitoring",
+        "regulation": "EU 2023/1542 Art.14 + EU 2018/858",
+        "evidence_needed": "LFP电池SOH在用监控方案和退化报告机制",
+        "current_status": "BMS具备SOH监控能力，但EU市场数据报告机制未建立",
+        "gap_note": "LFP电池循环寿命优于NCM，SOH退化曲线平缓，但仍需建立EU合规的SOH数据可访问机制（与Battery领域BMS开放问题关联）",
+        "how_to_obtain": "建立电池SOH数据记录和报告系统，结合BMS开放接口需求统一规划",
+        "priority": "MEDIUM"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "ISC",
+      "from_item": "ISC-C01 OTA更新影响评估",
+      "to_domain": "GSR",
+      "to_item": "GSR-D01 CSMS/SUMS认证",
+      "issue": "R156 SUMS认证是OTA更新合法性的前提。ISC中的OTA影响评估流程需以R156 SUMS认证为基础"
+    },
+    {
+      "from_domain": "ISC",
+      "from_item": "ISC-B03 ISA准确率监控",
+      "to_domain": "GSR",
+      "to_item": "GSR-A15 ISA准确率不足",
+      "issue": "ISA初始准确率88%尚未达标，在用监控的基准值需以型式认证修复后的达标值为依据"
+    },
+    {
+      "from_domain": "ISC",
+      "from_item": "ISC-B01 ADAS数据采集",
+      "to_domain": "GDPR",
+      "to_item": "车辆数据隐私",
+      "issue": "ADAS在用监控数据采集涉及个人数据，可利用深蓝已有的EU数据中心（法兰克福）存储监控数据"
+    }
+  ]
+}

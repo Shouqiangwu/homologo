@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "vehicle": "Deepal SL05",
+    "vehicle_cn": "深蓝SL05",
+    "domain": "CO2",
+    "domain_cn": "CO2排放",
+    "regulation": "EU 2019/631 (amended by EU 2023/851)",
+    "generated_at": "2026-03-25",
+    "model": "claude-opus-4-6-20250325",
+    "analysis_version": "2026-01-07 consolidated"
+  },
+  "summary": {
+    "total": 6,
+    "pass": 3,
+    "fail": 0,
+    "needs_evidence": 3
+  },
+  "results": {
+    "pass": [
+      {
+        "id": "CO2-A01",
+        "item": "尾气CO2排放",
+        "item_en": "Tailpipe CO2 Emissions",
+        "regulation": "EU 2019/631 Art.3(1)(h)",
+        "requirement": "车辆CO2排放值需纳入制造商车队平均计算",
+        "actual": "BEV车辆，尾气CO2排放 = 0 g/km",
+        "basis": "深蓝SL05为纯BEV Sedan，无内燃机，无尾气排放。WLTP测试CO2排放计为0g/km"
+      },
+      {
+        "id": "CO2-A02",
+        "item": "ZLEV积分资格",
+        "item_en": "ZLEV Credit Eligibility",
+        "regulation": "EU 2019/631 Art.4a + EU 2023/851",
+        "requirement": "零排放和低排放车辆（<50g/km）可获得ZLEV超级积分",
+        "actual": "BEV，0g/km，完全符合ZLEV定义",
+        "basis": "深蓝SL05作为纯BEV（0g/km），满足ZLEV定义（<50g CO2/km），可在2025-2029年间获得ZLEV激励乘数，降低制造商车队平均CO2"
+      },
+      {
+        "id": "CO2-A03",
+        "item": "电池碳足迹声明",
+        "item_en": "Battery Carbon Footprint Declaration",
+        "regulation": "EU 2023/1542 Art.7 (Battery Regulation)",
+        "requirement": "EV电池须具备按EU方法学编制的碳足迹声明",
+        "actual": "CATL长沙工厂LFP电池已按EU PEF方法学完成碳足迹声明（75 kg CO₂e/kWh），第三方验证通过",
+        "basis": "深蓝SL05电池碳足迹已合规完成（详见Battery领域BAT-A01），可支撑CO2法规下的电池碳足迹要求。优于星海X7（使用中国标准方法学，未验证）"
+      }
+    ],
+    "fail": [],
+    "needs_evidence": [
+      {
+        "id": "CO2-B01",
+        "item": "车队池化协议（Pooling）状态",
+        "item_en": "Fleet Pooling Agreement Status",
+        "regulation": "EU 2019/631 Art.6",
+        "evidence_needed": "已签署的车队池化协议或独立制造商注册确认",
+        "current_status": "长安深蓝作为中国品牌首次进入EU市场，尚不明确是否已与其他制造商建立pooling安排",
+        "gap_note": "BEV的0g/km CO2使pooling成为商业机会而非合规风险。长安深蓝可将ZLEV积分通过pooling卖给高排放制造商获取收益",
+        "how_to_obtain": "确认长安深蓝是否计划独立申报或与其他OEM签订pooling协议。提供协议副本或独立注册决策文件",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": "CO2-B02",
+        "item": "年度CO2监控注册",
+        "item_en": "Annual CO2 Monitoring Registration with EU Authority",
+        "regulation": "EU 2021/392 Art.4-7",
+        "evidence_needed": "向EEA/欧委会提交的年度CO2监控注册文件",
+        "current_status": "首次进入EU市场，尚未完成年度监控注册流程",
+        "gap_note": "即使CO2=0g/km，制造商仍需按EU 2021/392进行年度监控和报告。未注册将导致行政违规",
+        "how_to_obtain": "联系EU型式认证技术服务机构，启动年度CO2监控注册流程。需提供WLTP测试报告、车辆注册量预测",
+        "priority": "HIGH"
+      },
+      {
+        "id": "CO2-B03",
+        "item": "WLTP型式认证测试报告",
+        "item_en": "WLTP Type Approval Test Report",
+        "regulation": "EU 2017/1151 (WLTP)",
+        "evidence_needed": "EU认可实验室出具的WLTP测试报告（含纯电续航里程、能耗值）",
+        "current_status": "中国测试依据CLTC标准，EU需按WLTP标准重新测试",
+        "gap_note": "CLTC续航里程 ≠ WLTP续航里程。62kWh LFP电池包需在EU认可实验室按WLTP标准进行完整测试循环。LFP电池在低温环境下续航衰减较NCM明显，WLTP测试需关注此特性",
+        "how_to_obtain": "选择EU认可技术服务机构（如TUV、DEKRA），安排WLTP测试。提供电池包规格、能耗数据",
+        "priority": "HIGH"
+      }
+    ]
+  },
+  "cross_references": [
+    {
+      "from_domain": "CO2",
+      "from_item": "CO2-A03 电池碳足迹（已通过）",
+      "to_domain": "Battery Regulation",
+      "to_item": "BAT-A01 碳足迹声明",
+      "issue": "电池碳足迹在两个法规领域均已通过，形成正向交叉验证"
+    },
+    {
+      "from_domain": "CO2",
+      "from_item": "CO2-B03 WLTP测试",
+      "to_domain": "ISC",
+      "to_item": "在用车能耗一致性",
+      "issue": "WLTP型式认证能耗值将作为ISC在用监控的基准。LFP电池低温衰减特性可能导致冬季实际能耗与WLTP差异较大"
+    }
+  ]
+}
