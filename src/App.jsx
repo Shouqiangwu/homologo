@@ -289,7 +289,7 @@ function App() {
       <footer className="mt-12 border-t border-border py-6">
         <div className="mx-auto max-w-4xl px-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/ubiqs.png" alt="Ubiquity Service" className="h-6 opacity-70" />
+            <img src="/xiaomilogo.png" alt="Xiaomi" className="h-6 opacity-70" />
             <span className="text-sm text-muted-foreground">HomoloGo — AI 辅助欧盟汽车法规合规检查工具</span>
           </div>
           <span className="text-xs text-muted-foreground">Developed by Shouqiang Wu</span>
