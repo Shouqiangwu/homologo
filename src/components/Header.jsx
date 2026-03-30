@@ -19,7 +19,7 @@ export default function Header({ onAboutClick }) {
         </div>
 
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="sm" onClick={onAboutClick}>
+          <Button variant="outline" size="sm" onClick={onAboutClick} style={{ borderColor: '#e2e8f0' }}>
             关于项目
           </Button>
           <div className="h-4 w-px bg-border" />
