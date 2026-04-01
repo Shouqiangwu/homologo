@@ -6,7 +6,7 @@ export default function Header({ onAboutClick }) {
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-6">
         <div className="flex items-center gap-3">
-          <img src="/xiaomilogo.png" alt="Xiaomi" className="h-7" />
+          <img src="/ubiqs.png" alt="Ubiquity Service" className="h-7" />
           <div className="h-6 w-px bg-border" />
           <div>
             <h1 className="text-lg font-bold leading-tight text-foreground tracking-tight">
