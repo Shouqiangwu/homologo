@@ -8,7 +8,7 @@ const USE_PROXY = !LOCAL_KEY || LOCAL_KEY === 'your-api-key-here'
 const API_URL = USE_PROXY ? '/api/chat' : 'https://api.anthropic.com/v1/messages'
 
 const MODEL = 'claude-sonnet-4-6'
-const MAX_TOKENS = 8192
+const MAX_TOKENS = 16384
 
 /**
  * Run gap analysis for a given domain and vehicle params.

@@ -52,9 +52,15 @@ export function getSkillFileInfo(domain) {
 }
 
 const OUTPUT_FORMAT_INSTRUCTION = `
-## Output Format
+## Output Format — CRITICAL
 
-You MUST respond in valid JSON with the following structure. Do NOT wrap in markdown code fences.
+IMPORTANT: Your entire response must be a single valid JSON object. No text before or after.
+- Do NOT wrap in markdown code fences (\`\`\`).
+- Do NOT include any explanatory text outside the JSON.
+- Do NOT truncate — if the output is long, prioritize completing the JSON structure.
+- Start your response with { and end with }.
+
+JSON structure:
 
 {
   "metadata": {
