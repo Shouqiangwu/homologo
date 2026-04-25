@@ -8,7 +8,7 @@ const USE_PROXY = !LOCAL_KEY || LOCAL_KEY === 'your-api-key-here'
 const API_URL = USE_PROXY ? '/api/chat' : 'https://api.anthropic.com/v1/messages'
 
 const MODEL = 'claude-sonnet-4-6'
-const MAX_TOKENS = 16384
+const MAX_TOKENS = 65536
 
 /**
  * Run gap analysis for a given domain and vehicle params.
@@ -26,14 +26,7 @@ export async function runGapAnalysis({ domain, vehicleParams, onStream, signal }
     messages: [
       {
         role: 'user',
-        content: `请对以下车型技术参数进行 ${domain.toUpperCase()} 领域的欧盟法规合规差距分析（Gap Analysis）。
-
-要求：
-- 每个类别（pass/fail/needs_evidence）最多列出 8 项最关键的
-- 每项的描述字段尽量简洁（每字段不超过 80 字）
-- 确保输出完整的 JSON，不要因内容过长导致截断
-
-${userMessage}`,
+        content: `请对以下车型技术参数进行 ${domain.toUpperCase()} 领域的欧盟法规合规差距分析（Gap Analysis）。\n\n${userMessage}`,
       },
     ],
     stream: true,

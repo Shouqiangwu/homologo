@@ -3,7 +3,7 @@
 
 const CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages'
 const ALLOWED_MODEL = 'claude-sonnet-4-6'
-const MAX_TOKENS_LIMIT = 16384
+const MAX_TOKENS_LIMIT = 65536
 
 export default async function handler(req, res) {
   // Only accept POST
