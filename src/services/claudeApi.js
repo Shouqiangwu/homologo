@@ -73,6 +73,26 @@ async function readStream(body, onStream) {
   let fullText = ''
   let buffer = ''
 
+  function processLines(lines) {
+    for (const line of lines) {
+      if (!line.startsWith('data: ')) continue
+      const data = line.slice(6).trim()
+
+      if (data === '[DONE]') continue
+
+      try {
+        const event = JSON.parse(data)
+        if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
+          const text = event.delta.text
+          fullText += text
+          onStream?.(text, fullText)
+        }
+      } catch {
+        // Skip malformed SSE events
+      }
+    }
+  }
+
   try {
     while (true) {
       const { done, value } = await reader.read()
@@ -82,24 +102,12 @@ async function readStream(body, onStream) {
 
       const lines = buffer.split('\n')
       buffer = lines.pop() || ''
+      processLines(lines)
+    }
 
-      for (const line of lines) {
-        if (!line.startsWith('data: ')) continue
-        const data = line.slice(6).trim()
-
-        if (data === '[DONE]') continue
-
-        try {
-          const event = JSON.parse(data)
-          if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
-            const text = event.delta.text
-            fullText += text
-            onStream?.(text, fullText)
-          }
-        } catch {
-          // Skip malformed SSE events
-        }
-      }
+    // Process any remaining data in buffer after stream ends
+    if (buffer.trim()) {
+      processLines(buffer.split('\n'))
     }
   } finally {
     reader.releaseLock()
@@ -110,24 +118,45 @@ async function readStream(body, onStream) {
 
 /**
  * Parse gap analysis JSON from Claude's response text.
+ * Handles: markdown fences, leading/trailing text, and truncated JSON.
  */
 function parseAnalysisResult(text) {
   let cleaned = text.trim()
+
+  // Strip markdown code fences
   cleaned = cleaned.replace(/^```(?:json)?\s*\n?/i, '').replace(/\n?```\s*$/i, '').trim()
 
+  // Attempt 1: direct parse
   try {
     return JSON.parse(cleaned)
-  } catch (e) {
-    const jsonMatch = cleaned.match(/\{[\s\S]*\}/)
-    if (jsonMatch) {
-      try {
-        return JSON.parse(jsonMatch[0])
-      } catch {
-        // Fall through
-      }
-    }
-    throw new Error(`JSON_PARSE_ERROR: ${e.message}\n\nRaw text (first 500 chars):\n${text.slice(0, 500)}`)
+  } catch { /* continue */ }
+
+  // Attempt 2: extract JSON object from surrounding text
+  const jsonMatch = cleaned.match(/\{[\s\S]*\}/)
+  if (jsonMatch) {
+    try {
+      return JSON.parse(jsonMatch[0])
+    } catch { /* continue */ }
   }
+
+  // Attempt 3: repair truncated JSON (close open brackets/braces)
+  const jsonStart = cleaned.indexOf('{')
+  if (jsonStart !== -1) {
+    let partial = cleaned.slice(jsonStart)
+    // Remove trailing incomplete string/value
+    partial = partial.replace(/,\s*"[^"]*$/, '')  // trailing incomplete key
+    partial = partial.replace(/,\s*$/, '')          // trailing comma
+    // Count and close open brackets
+    const opens = (partial.match(/\[/g) || []).length - (partial.match(/\]/g) || []).length
+    const braces = (partial.match(/\{/g) || []).length - (partial.match(/\}/g) || []).length
+    partial += ']'.repeat(Math.max(0, opens))
+    partial += '}'.repeat(Math.max(0, braces))
+    try {
+      return JSON.parse(partial)
+    } catch { /* continue */ }
+  }
+
+  throw new Error(`JSON_PARSE_ERROR: Claude returned non-JSON response.\n\nFirst 500 chars:\n${text.slice(0, 500)}`)
 }
 
 /**
