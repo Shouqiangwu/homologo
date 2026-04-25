@@ -345,7 +345,7 @@ function formatError(err) {
   if (msg.includes('API_ERROR_401')) return '服务配置错误，请联系管理员。'
   if (msg.includes('API_ERROR_429')) return 'API 请求频率超限，请稍后重试。'
   if (msg.includes('API_ERROR_529') || msg.includes('API_ERROR_503')) return 'Claude API 服务暂时不可用，请稍后重试。'
-  if (msg.includes('JSON_PARSE_ERROR')) return `AI 返回格式异常。调试信息：${msg.slice(0, 1000)}`
+  if (msg.includes('JSON_PARSE_ERROR')) return 'AI 返回的结果格式异常，无法解析为结构化报告。请重试。'
   if (msg.includes('Failed to fetch') || msg.includes('NetworkError')) return '网络连接失败。请检查网络连接后重试。'
   return `分析过程出错：${msg}`
 }

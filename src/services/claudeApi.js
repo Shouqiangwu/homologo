@@ -26,7 +26,14 @@ export async function runGapAnalysis({ domain, vehicleParams, onStream, signal }
     messages: [
       {
         role: 'user',
-        content: `请对以下车型技术参数进行 ${domain.toUpperCase()} 领域的欧盟法规合规差距分析（Gap Analysis）。\n\n${userMessage}`,
+        content: `请对以下车型技术参数进行 ${domain.toUpperCase()} 领域的欧盟法规合规差距分析（Gap Analysis）。
+
+要求：
+- 每个类别（pass/fail/needs_evidence）最多列出 8 项最关键的
+- 每项的描述字段尽量简洁（每字段不超过 80 字）
+- 确保输出完整的 JSON，不要因内容过长导致截断
+
+${userMessage}`,
       },
     ],
     stream: true,
@@ -139,18 +146,34 @@ function parseAnalysisResult(text) {
     } catch { /* continue */ }
   }
 
-  // Attempt 3: repair truncated JSON (close open brackets/braces)
+  // Attempt 3: repair truncated JSON
   const jsonStart = cleaned.indexOf('{')
   if (jsonStart !== -1) {
     let partial = cleaned.slice(jsonStart)
-    // Remove trailing incomplete string/value
-    partial = partial.replace(/,\s*"[^"]*$/, '')  // trailing incomplete key
-    partial = partial.replace(/,\s*$/, '')          // trailing comma
-    // Count and close open brackets
+
+    // Find the last cleanly closed object or array entry
+    // by searching backward for the last complete }, or ]
+    const lastCleanCut = Math.max(
+      partial.lastIndexOf('},'),
+      partial.lastIndexOf('}]'),
+      partial.lastIndexOf('],'),
+      partial.lastIndexOf('"]'),
+      partial.lastIndexOf('"}'),
+    )
+
+    if (lastCleanCut > 0) {
+      // Cut at the last clean boundary + 1 to keep the closing char
+      partial = partial.slice(0, lastCleanCut + 1)
+      // Remove trailing comma if present
+      partial = partial.replace(/,\s*$/, '')
+    }
+
+    // Close all open brackets and braces
     const opens = (partial.match(/\[/g) || []).length - (partial.match(/\]/g) || []).length
     const braces = (partial.match(/\{/g) || []).length - (partial.match(/\}/g) || []).length
     partial += ']'.repeat(Math.max(0, opens))
     partial += '}'.repeat(Math.max(0, braces))
+
     try {
       return JSON.parse(partial)
     } catch { /* continue */ }
