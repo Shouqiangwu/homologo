@@ -10,8 +10,17 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-*.local
+
+# Environment variables — NEVER commit real keys
+# Only .env.example is safe to commit (it has no real values)
 .env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# Vercel
+.vercel
 
 # Editor directories and files
 .vscode/*

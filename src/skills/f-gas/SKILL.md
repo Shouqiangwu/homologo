@@ -25,9 +25,12 @@
 
 ```
 用户查询 →
-├─ 制冷剂GWP要求？ → 加载 references/mac-refrigerant.md
-├─ 合规制冷剂清单？ → 加载 references/gwp-limits.md
-└─ Gap Analysis？ → 加载 gap-analysis-template.md
+├─ MAC Directive型式认证/标签？ → 加载 references/mac-refrigerant.md
+├─ GWP限制和制冷剂清单？ → 加载 references/gwp-limits.md
+├─ 泄漏率测试（ECE R82）？ → 加载 references/leakage-testing.md
+├─ 制冷剂回收/ELV处置/维修？ → 加载 references/refrigerant-recovery.md
+├─ R-1234yf/R-744/R-290安全性对比？ → 加载 references/alternative-safety.md
+└─ Gap Analysis？ → 加载 gap-analysis-template.md + 全部references
 ```
 
 ## 交叉引用

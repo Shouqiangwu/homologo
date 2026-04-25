@@ -27,9 +27,11 @@ EU 2019/631设定了乘用车和轻型商用车的车队平均CO2排放目标，
 
 ```
 用户查询 →
-├─ 车队CO2目标和罚款？ → 加载 references/fleet-targets.md
-├─ 年度监控报告流程？ → 加载 references/reporting-monitoring.md
+├─ 车辆WLTP CO2值/PHEV UF/BEV电耗？ → 加载 references/wltp-co2-calculation.md
+├─ 车队CO2目标和机制？ → 加载 references/fleet-targets.md
 ├─ Pooling/ZLEV credits？ → 加载 references/pooling-credits.md
+├─ 超标罚款计算/对冲策略？ → 加载 references/penalties-risk.md
+├─ 年度监控报告/VIN级数据上报？ → 加载 references/reporting-monitoring.md
 └─ Gap Analysis？ → 加载 gap-analysis-template.md + 全部references
 ```
 

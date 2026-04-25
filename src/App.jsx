@@ -176,7 +176,7 @@ function App() {
       if (cached) {
         runCachedAnalysis(selectedDomain)
       } else {
-        setError('未配置 API Key。请在 .env 中设置 VITE_CLAUDE_API_KEY 启用实时分析。')
+        setError('实时分析服务未就绪，请使用示例结果或稍后重试。')
         setAnalysisState('error')
       }
     }
@@ -185,7 +185,7 @@ function App() {
   const handleLiveAnalysis = useCallback(() => {
     if (!selectedDomain) return
     if (!isApiKeyConfigured()) {
-      setError('未配置 API Key。请在 .env 文件中设置 VITE_CLAUDE_API_KEY。')
+      setError('实时分析服务未就绪，请稍后重试。')
       setAnalysisState('error')
       return
     }
@@ -331,7 +331,7 @@ function AboutPanel({ onClose }) {
             API {isApiKeyConfigured() ? '已连接' : '未配置'}
           </Badge>
           {!isApiKeyConfigured() && (
-            <span className="text-xs text-muted-foreground">在 .env 中设置 VITE_CLAUDE_API_KEY 启用实时分析</span>
+            <span className="text-xs text-muted-foreground">实时分析服务未配置</span>
           )}
         </div>
       </div>
@@ -341,8 +341,8 @@ function AboutPanel({ onClose }) {
 
 function formatError(err) {
   const msg = err.message || String(err)
-  if (msg.includes('API_KEY_NOT_SET')) return '未配置 API Key。请在 .env 文件中设置 VITE_CLAUDE_API_KEY。'
-  if (msg.includes('API_ERROR_401')) return 'API Key 无效或已过期。请检查 VITE_CLAUDE_API_KEY 配置。'
+  if (msg.includes('API_KEY_NOT_SET')) return '实时分析服务未就绪，请稍后重试。'
+  if (msg.includes('API_ERROR_401')) return '服务配置错误，请联系管理员。'
   if (msg.includes('API_ERROR_429')) return 'API 请求频率超限，请稍后重试。'
   if (msg.includes('API_ERROR_529') || msg.includes('API_ERROR_503')) return 'Claude API 服务暂时不可用，请稍后重试。'
   if (msg.includes('JSON_PARSE_ERROR')) return 'AI 返回的结果格式异常，无法解析为结构化报告。请重试。'

@@ -26,9 +26,12 @@ IDIS是汽车行业建立的国际拆解信息数据库（International Dismantl
 
 ```
 用户查询 →
-├─ 拆解信息提交？ → 加载 references/dismantling-info.md
-├─ 可回收率计算？ → 加载 references/recyclability-calculation.md
-└─ Gap Analysis？ → 加载 gap-analysis-template.md
+├─ IDIS平台注册/订阅？ → 加载 references/idis-platform-registration.md
+├─ 拆解信息提交内容？ → 加载 references/dismantling-info.md
+├─ BEV电池拆解专项？ → 加载 references/bev-battery-dismantling.md
+├─ 材料成分文档(ISO 1043/11469)？ → 加载 references/material-composition-docs.md
+├─ ISO 22628可回收率计算？ → 加载 references/recyclability-calculation.md
+└─ Gap Analysis？ → 加载 gap-analysis-template.md + 全部references
 ```
 
 ## 交叉引用
